@@ -326,11 +326,10 @@ section { position: relative; }
   display: flex; align-items: center; gap: 0.5rem;
   font-size: 0.82rem; font-weight: 700; color: var(--fg);
   padding: 0.5rem 0.95rem; border-radius: 999px;
-  border: 1px solid var(--ink-20); background: var(--ink-10);
+  border: 1px solid var(--gold-20); background: var(--gold-10);
+  white-space: nowrap;
 }
-.trust-item svg { color: var(--ink); flex-shrink: 0; }
-.trust-item.is-promise { border-color: var(--gold-20); background: var(--gold-10); }
-.trust-item.is-promise svg { color: var(--gold); }
+.trust-item svg { color: var(--gold); flex-shrink: 0; }
 
 /* ---- Cards / services --------------------------------------------------*/
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
