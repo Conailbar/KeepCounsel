@@ -283,9 +283,7 @@ section { position: relative; }
 .hero-actions { display: flex; align-items: center; gap: 1.1rem; margin-top: 2.2rem; flex-wrap: wrap; }
 .hero-note { font-size: var(--fs-small); color: var(--fg-faint); margin-top: 1.4rem; }
 
-.hero-badges { margin-top: 2.2rem; display: flex; flex-direction: column; gap: 0.9rem; }
-.badge-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 0.7rem; }
-.badge-row-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-faint); margin-right: 0.3rem; }
+.hero-badges { display: flex; flex-wrap: wrap; gap: 0.6rem 0.7rem; margin-top: 2.4rem; }
 .badge {
   display: inline-flex; align-items: center; gap: 0.5rem;
   font-size: 0.8rem; font-weight: 600; color: var(--fg-muted);
@@ -323,9 +321,16 @@ section { position: relative; }
 
 /* ---- Logo / trust strip ---------------------------------------------- */
 .trust-strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
-.trust-strip .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.6rem 2.4rem; padding-block: 1.9rem; }
-.trust-item { display: flex; align-items: center; gap: 0.65rem; font-size: 0.86rem; font-weight: 600; color: var(--fg-muted); }
-.trust-item svg { color: var(--gold); flex-shrink: 0; }
+.trust-strip .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.7rem; padding-block: 1.7rem; }
+.trust-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.82rem; font-weight: 700; color: var(--fg);
+  padding: 0.5rem 0.95rem; border-radius: 999px;
+  border: 1px solid var(--ink-20); background: var(--ink-10);
+}
+.trust-item svg { color: var(--ink); flex-shrink: 0; }
+.trust-item.is-promise { border-color: var(--gold-20); background: var(--gold-10); }
+.trust-item.is-promise svg { color: var(--gold); }
 
 /* ---- Cards / services --------------------------------------------------*/
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
@@ -732,7 +737,7 @@ section { position: relative; }
   .nav-links-desktop, .nav-cta .btn-ghost { display: none; }
   .nav-toggle { display: flex; }
   .services-grid, .process-list, .insight-grid, .tier-grid { grid-template-columns: 1fr; }
-  .trust-strip .wrap { justify-content: flex-start; gap: 1.2rem 2rem; }
+  .trust-strip .wrap { justify-content: flex-start; gap: 0.6rem; }
   .footer-top { grid-template-columns: 1fr; gap: 2rem; }
   .hero-stat-grid { gap: 1.2rem; }
 }
