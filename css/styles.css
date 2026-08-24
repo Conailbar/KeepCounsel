@@ -365,6 +365,33 @@ section { position: relative; }
 .sector-pill.sector-more svg { color: var(--gold-bright); }
 
 /* ---- Process --------------------------------------------------------- */
+/* ---- Process track: connected icon timeline above the numbered steps ---- */
+.process-track { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); margin-bottom: 2.4rem; }
+.process-track::before {
+  content: ''; position: absolute; top: 26px; left: 12.5%; right: 12.5%; height: 2px;
+  background: var(--border); z-index: 0;
+}
+.process-track::after {
+  content: ''; position: absolute; top: 26px; left: 12.5%; height: 2px; width: 0;
+  background: var(--gold); z-index: 1;
+  transition: width 1.3s var(--ease-out) 150ms;
+}
+.process-track.is-visible::after { width: 75%; }
+.process-node { display: flex; justify-content: center; position: relative; z-index: 2; }
+.process-icon {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--surface); border: 2px solid var(--border); color: var(--fg-faint);
+  display: flex; align-items: center; justify-content: center;
+  transform: scale(0.82);
+  transition: border-color 0.5s var(--ease-out), color 0.5s var(--ease-out), transform 0.5s var(--ease-out), background 0.5s var(--ease-out);
+}
+.process-track.is-visible .process-node:nth-child(1) .process-icon { transition-delay: 150ms; }
+.process-track.is-visible .process-node:nth-child(2) .process-icon { transition-delay: 500ms; }
+.process-track.is-visible .process-node:nth-child(3) .process-icon { transition-delay: 850ms; }
+.process-track.is-visible .process-node:nth-child(4) .process-icon { transition-delay: 1200ms; }
+.process-track.is-visible .process-icon { border-color: var(--gold); background: var(--gold-10); color: var(--gold); transform: scale(1); }
+@media (max-width: 720px) { .process-track { display: none; } }
+
 .process-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; counter-reset: step; }
 .process-step { position: relative; padding-top: 2.2rem; }
 .process-step::before {
@@ -377,8 +404,6 @@ section { position: relative; }
 }
 .process-step h3 { font-size: 1.1rem; margin: 0.9rem 0 0.5rem; }
 .process-step p { color: var(--fg-muted); font-size: 0.92rem; }
-.process-line { position: absolute; top: 0.6rem; left: -0.8rem; right: 0; height: 1px; background: var(--border); display: none; }
-.process-step:not(:first-child) .process-line { display: block; }
 
 /* ---- Pricing --------------------------------------------------------- */
 .pricing-tabs { display: inline-flex; gap: 0.35rem; padding: 0.4rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 999px; margin-bottom: 1.6rem; }
