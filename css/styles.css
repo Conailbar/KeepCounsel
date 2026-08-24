@@ -716,6 +716,15 @@ section { position: relative; }
 .legal-body a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
 .legal-body section { scroll-margin-top: 5.5rem; }
 
+.legal-brief {
+  max-width: 46rem; margin-top: 2rem; display: flex; gap: 0.9rem; align-items: flex-start;
+  background: linear-gradient(120deg, var(--gold-10), transparent);
+  border: 1px solid var(--gold-20); border-radius: var(--radius-md);
+  padding: 1.1rem 1.4rem;
+}
+.legal-brief svg { color: var(--gold); flex-shrink: 0; margin-top: 0.15rem; }
+.legal-brief p { margin: 0; font-size: 0.92rem; color: var(--fg); }
+
 .legal-toc { max-width: 46rem; margin-top: 2.2rem; padding: 1.2rem 1.5rem; border: 1px solid var(--border); border-radius: 0.9rem; background: var(--surface); }
 .legal-toc-label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.7rem; }
 .legal-toc ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.4rem 1.5rem; counter-reset: toc; }
