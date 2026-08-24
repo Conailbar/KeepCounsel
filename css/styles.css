@@ -561,6 +561,7 @@ section { position: relative; }
 }
 .payment-strip span.label { font-size: 0.82rem; font-weight: 700; color: var(--fg-faint); }
 .payment-strip .pay-chip { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 600; color: var(--fg-muted); background: var(--bg-alt); padding: 0.35rem 0.75rem; border-radius: 999px; }
+.payment-strip .pay-chip svg { color: var(--gold); flex-shrink: 0; }
 
 /* ---- Testimonials ---------------------------------------------------- */
 .testi-wrap { position: relative; max-width: 52rem; margin-inline: auto; text-align: center; }
