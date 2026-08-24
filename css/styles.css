@@ -283,7 +283,9 @@ section { position: relative; }
 .hero-actions { display: flex; align-items: center; gap: 1.1rem; margin-top: 2.2rem; flex-wrap: wrap; }
 .hero-note { font-size: var(--fs-small); color: var(--fg-faint); margin-top: 1.4rem; }
 
-.hero-badges { display: flex; flex-wrap: wrap; gap: 0.6rem 1rem; margin-top: 2.6rem; }
+.hero-badges { margin-top: 2.2rem; display: flex; flex-direction: column; gap: 0.9rem; }
+.badge-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 0.7rem; }
+.badge-row-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-faint); margin-right: 0.3rem; }
 .badge {
   display: inline-flex; align-items: center; gap: 0.5rem;
   font-size: 0.8rem; font-weight: 600; color: var(--fg-muted);
@@ -389,7 +391,7 @@ section { position: relative; }
 .process-track.is-visible .process-node:nth-child(2) .process-icon { transition-delay: 500ms; }
 .process-track.is-visible .process-node:nth-child(3) .process-icon { transition-delay: 850ms; }
 .process-track.is-visible .process-node:nth-child(4) .process-icon { transition-delay: 1200ms; }
-.process-track.is-visible .process-icon { border-color: var(--gold); background: var(--gold-10); color: var(--gold); transform: scale(1); }
+.process-track.is-visible .process-icon { border-color: var(--gold); background: var(--surface); color: var(--gold); transform: scale(1); }
 @media (max-width: 720px) { .process-track { display: none; } }
 
 .process-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; counter-reset: step; }
