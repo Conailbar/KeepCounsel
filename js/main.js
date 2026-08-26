@@ -258,19 +258,41 @@
     window.history.replaceState({}, document.title, cleanUrl);
   }
 
-  /* ---------- Freebie picker buttons ---------- */
-  var freebieButtons = Array.prototype.slice.call(document.querySelectorAll('.freebie-btn'));
-  freebieButtons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var targetId = btn.getAttribute('data-resource');
-      var checkbox = targetId ? document.getElementById(targetId) : null;
-      if (checkbox) checkbox.checked = true;
-      var panel = document.getElementById('lead-panel');
-      if (panel) panel.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'center' });
+  /* ---------- Freebie modal ---------- */
+  var freebieModal = document.getElementById('freebie-modal');
+  if (freebieModal) {
+    var lastFocused = null;
+    function openFreebieModal(checkboxId) {
+      lastFocused = document.activeElement;
+      document.querySelectorAll('.resource-pick input').forEach(function (i) { i.checked = false; });
+      if (checkboxId) {
+        var cb = document.getElementById(checkboxId);
+        if (cb) cb.checked = true;
+      }
+      freebieModal.classList.add('is-open');
+      freebieModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
       var nameField = document.getElementById('lead-name');
-      if (nameField) nameField.focus({ preventScroll: true });
+      if (nameField) nameField.focus();
+    }
+    function closeFreebieModal() {
+      freebieModal.classList.remove('is-open');
+      freebieModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocused && lastFocused.focus) lastFocused.focus();
+    }
+    Array.prototype.slice.call(document.querySelectorAll('.freebie-btn')).forEach(function (btn) {
+      btn.addEventListener('click', function () { openFreebieModal(btn.getAttribute('data-resource')); });
     });
-  });
+    var modalCloseBtn = document.getElementById('freebie-modal-close');
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeFreebieModal);
+    freebieModal.addEventListener('click', function (e) {
+      if (e.target === freebieModal) closeFreebieModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && freebieModal.classList.contains('is-open')) closeFreebieModal();
+    });
+  }
 
   /* ---------- Lead capture form (static demo) ---------- */
   var leadForm = document.getElementById('lead-form');

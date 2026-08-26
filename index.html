@@ -581,8 +581,8 @@
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">Free resources</span>
-        <h2>Genuinely useful. Built to show you where they stop.</h2>
-        <p>Three practical resources drawn from real client work — not generic law-firm blog filler. Each one solves part of the problem. None of them can tell you whether your specific situation is actually covered.</p>
+        <h2>Genuinely useful. No strings attached.</h2>
+        <p>Three practical resources drawn from real client work — not generic law-firm blog filler. Tell me where to send them.</p>
       </div>
 
       <div class="freebie-grid" data-reveal-group>
@@ -590,56 +590,59 @@
           <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4M12 3l8 4v5c0 5-3.4 8.6-8 9-4.6-.4-8-4-8-9V7l8-4Z"/></svg></div>
           <h3>The KeepCounsel NDA</h3>
           <p>A genuinely usable mutual NDA — the one I actually send my own clients. Built to get signed fast, not to read like a 12-page stalling tactic.</p>
-          <div class="freebie-gap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L14.71 3.86a2 2 0 0 0-3.42 0Z"/></svg><span><strong>What it won't tell you:</strong> whether it's still enough once real money, unusual IP or a one-sided counterparty are involved.</span></div>
-          <button type="button" class="btn btn-ghost btn-sm btn-block freebie-btn" data-resource="pick-nda">Get this free</button>
+          <div class="tags"><span>Mutual NDA</span><span>Ready to send</span><span>Plain English</span></div>
+          <button type="button" class="btn btn-ghost btn-sm btn-block freebie-btn" data-resource="pick-nda">Get this for free</button>
         </article>
 
         <article class="freebie-card" data-reveal style="transition-delay:60ms">
           <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35M11 8v3l2 2"/></svg></div>
           <h3>The Contract Red-Flag Checklist</h3>
-          <p>The clauses AI drafting tools quietly get wrong most often — the same ones I check for in every AI Contract Review.</p>
-          <div class="freebie-gap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L14.71 3.86a2 2 0 0 0-3.42 0Z"/></svg><span><strong>What it won't tell you:</strong> whether any of these are actually lurking in your contract. That's what the £50 review is for.</span></div>
-          <button type="button" class="btn btn-ghost btn-sm btn-block freebie-btn" data-resource="pick-redflag">Get this free</button>
+          <p>The clauses that quietly cause the most damage in AI-drafted and templated contracts — one page, straight to the point.</p>
+          <div class="tags"><span>AI blind spots</span><span>10 red flags</span><span>One page</span></div>
+          <button type="button" class="btn btn-ghost btn-sm btn-block freebie-btn" data-resource="pick-redflag">Get this for free</button>
         </article>
 
         <article class="freebie-card" data-reveal style="transition-delay:120ms">
           <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><path d="m9 13 2 2 4-4"/></svg></div>
           <h3>The Legal Health Check-list</h3>
           <p>The core documents investors, acquirers and regulators actually ask for — score yourself against all nine in five minutes.</p>
-          <div class="freebie-gap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L14.71 3.86a2 2 0 0 0-3.42 0Z"/></svg><span><strong>What it won't tell you:</strong> what to actually do about the gaps, or how to keep it current as you grow. That's what a retainer is for.</span></div>
-          <button type="button" class="btn btn-ghost btn-sm btn-block freebie-btn" data-resource="pick-healthcheck">Get this free</button>
+          <div class="tags"><span>Self-audit</span><span>9-point score</span><span>5 minutes</span></div>
+          <button type="button" class="btn btn-ghost btn-sm btn-block freebie-btn" data-resource="pick-healthcheck">Get this for free</button>
         </article>
       </div>
 
-      <div class="lead-panel" data-reveal id="lead-panel">
-        <div class="lead-panel-copy">
-          <h3>Get your resources</h3>
-          <p>Tick whichever you want — sent straight to your inbox.</p>
+      <p class="lead-archive-note">Prefer to read first? The plain-English notes these are drawn from are in the <a href="insights/index.html">insights archive</a> — the same material posted on LinkedIn.</p>
+
+      <div class="modal-overlay" id="freebie-modal" aria-hidden="true">
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="freebie-modal-title">
+          <button type="button" class="modal-close" id="freebie-modal-close" aria-label="Close">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+          <h3 id="freebie-modal-title">Get your free resources</h3>
+          <p class="modal-sub">Tick whichever you'd like — sent straight to your inbox.</p>
           <div class="lead-resource-picks">
             <label class="resource-pick"><input type="checkbox" name="resource" value="nda" id="pick-nda"> The KeepCounsel NDA</label>
             <label class="resource-pick"><input type="checkbox" name="resource" value="redflag" id="pick-redflag"> The Contract Red-Flag Checklist</label>
             <label class="resource-pick"><input type="checkbox" name="resource" value="healthcheck" id="pick-healthcheck"> The Legal Health Check-list</label>
           </div>
+          <form class="lead-form" id="lead-form" style="background:none;border:none;padding:0;margin-top:1.4rem;">
+            <div class="field">
+              <label for="lead-name">First name</label>
+              <input id="lead-name" name="name" type="text" placeholder="Jane" required>
+            </div>
+            <div class="field">
+              <label for="lead-email">Work email</label>
+              <input id="lead-email" name="email" type="email" placeholder="jane@yourcompany.com" required>
+            </div>
+            <div class="field">
+              <label for="lead-company">Company name</label>
+              <input id="lead-company" name="company" type="text" placeholder="Your Company Ltd" required>
+            </div>
+            <button type="submit" class="btn btn-gold btn-block">Send me these</button>
+            <p class="lead-form-foot">Demo form — connect to an email tool (e.g. Mailchimp, ConvertKit, Beehiiv) to actually deliver the resources and capture the contact. No data is stored or transmitted by this static page yet.</p>
+          </form>
         </div>
-        <form class="lead-form" id="lead-form">
-          <div class="field">
-            <label for="lead-name">First name</label>
-            <input id="lead-name" name="name" type="text" placeholder="Jane" required>
-          </div>
-          <div class="field">
-            <label for="lead-email">Work email</label>
-            <input id="lead-email" name="email" type="email" placeholder="jane@yourcompany.com" required>
-          </div>
-          <div class="field">
-            <label for="lead-company">Company name</label>
-            <input id="lead-company" name="company" type="text" placeholder="Your Company Ltd" required>
-          </div>
-          <button type="submit" class="btn btn-gold btn-block">Send me these</button>
-          <p class="lead-form-foot">Demo form — connect to an email tool (e.g. Mailchimp, ConvertKit, Beehiiv) to actually deliver the resources and capture the contact. No data is stored or transmitted by this static page yet.</p>
-        </form>
       </div>
-
-      <p class="lead-archive-note">Prefer to read first? The plain-English notes these are drawn from are in the <a href="insights/index.html">insights archive</a> — the same material posted on LinkedIn.</p>
     </div>
   </section>
 
