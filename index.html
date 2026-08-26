@@ -554,21 +554,46 @@
   <section class="section-pad" id="insights" style="background:var(--bg-alt);">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Free resource</span>
-        <h2>The Founder's Legal Checklist.</h2>
-        <p>The practical, plain-English checklist I wish every growing business had before their first contract, first hire or first raise — not generic law-firm blog filler.</p>
+        <span class="eyebrow">Free resources</span>
+        <h2>Genuinely useful. Built to show you where they stop.</h2>
+        <p>Three practical resources drawn from real client work — not generic law-firm blog filler. Each one solves part of the problem. None of them can tell you whether your specific situation is actually covered.</p>
       </div>
 
-      <div class="lead-panel" data-reveal>
+      <div class="freebie-grid" data-reveal-group>
+        <article class="freebie-card" data-reveal>
+          <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4M12 3l8 4v5c0 5-3.4 8.6-8 9-4.6-.4-8-4-8-9V7l8-4Z"/></svg></div>
+          <h3>The KeepCounsel NDA</h3>
+          <p>A genuinely usable mutual NDA — the one I actually send my own clients. Built to get signed fast, not to read like a 12-page stalling tactic.</p>
+          <div class="freebie-gap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L14.71 3.86a2 2 0 0 0-3.42 0Z"/></svg><span><strong>What it won't tell you:</strong> whether it's still enough once real money, unusual IP or a one-sided counterparty are involved.</span></div>
+          <button type="button" class="btn btn-ghost btn-sm btn-block freebie-btn" data-resource="pick-nda">Get this free</button>
+        </article>
+
+        <article class="freebie-card" data-reveal style="transition-delay:60ms">
+          <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35M11 8v3l2 2"/></svg></div>
+          <h3>The Contract Red-Flag Checklist</h3>
+          <p>The clauses AI drafting tools quietly get wrong most often — the same ones I check for in every AI Contract Review.</p>
+          <div class="freebie-gap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L14.71 3.86a2 2 0 0 0-3.42 0Z"/></svg><span><strong>What it won't tell you:</strong> whether any of these are actually lurking in your contract. That's what the £50 review is for.</span></div>
+          <button type="button" class="btn btn-ghost btn-sm btn-block freebie-btn" data-resource="pick-redflag">Get this free</button>
+        </article>
+
+        <article class="freebie-card" data-reveal style="transition-delay:120ms">
+          <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><path d="m9 13 2 2 4-4"/></svg></div>
+          <h3>The Legal Health Check-list</h3>
+          <p>The core documents investors, acquirers and regulators actually ask for — score yourself against all nine in five minutes.</p>
+          <div class="freebie-gap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L14.71 3.86a2 2 0 0 0-3.42 0Z"/></svg><span><strong>What it won't tell you:</strong> what to actually do about the gaps, or how to keep it current as you grow. That's what a retainer is for.</span></div>
+          <button type="button" class="btn btn-ghost btn-sm btn-block freebie-btn" data-resource="pick-healthcheck">Get this free</button>
+        </article>
+      </div>
+
+      <div class="lead-panel" data-reveal id="lead-panel">
         <div class="lead-panel-copy">
-          <h3>What's inside</h3>
-          <p>A short, no-fluff checklist covering the things that actually cause problems — sent straight to your inbox.</p>
-          <ul class="lead-points">
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> The clauses AI drafting tools get wrong most often</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> What genuinely needs a lawyer, and what doesn't</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> A one-page red-flag checklist for any contract you're sent</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> When to move from ad-hoc advice to ongoing counsel</li>
-          </ul>
+          <h3>Get your resources</h3>
+          <p>Tick whichever you want — sent straight to your inbox.</p>
+          <div class="lead-resource-picks">
+            <label class="resource-pick"><input type="checkbox" name="resource" value="nda" id="pick-nda"> The KeepCounsel NDA</label>
+            <label class="resource-pick"><input type="checkbox" name="resource" value="redflag" id="pick-redflag"> The Contract Red-Flag Checklist</label>
+            <label class="resource-pick"><input type="checkbox" name="resource" value="healthcheck" id="pick-healthcheck"> The Legal Health Check-list</label>
+          </div>
         </div>
         <form class="lead-form" id="lead-form">
           <div class="field">
@@ -579,12 +604,16 @@
             <label for="lead-email">Work email</label>
             <input id="lead-email" name="email" type="email" placeholder="jane@yourcompany.com" required>
           </div>
-          <button type="submit" class="btn btn-gold btn-block">Send me the checklist</button>
-          <p class="lead-form-foot">Demo form — connect to an email tool (e.g. Mailchimp, ConvertKit, Beehiiv) to actually deliver the guide and capture the contact. No data is stored or transmitted by this static page yet.</p>
+          <div class="field">
+            <label for="lead-company">Company name</label>
+            <input id="lead-company" name="company" type="text" placeholder="Your Company Ltd" required>
+          </div>
+          <button type="submit" class="btn btn-gold btn-block">Send me these</button>
+          <p class="lead-form-foot">Demo form — connect to an email tool (e.g. Mailchimp, ConvertKit, Beehiiv) to actually deliver the resources and capture the contact. No data is stored or transmitted by this static page yet.</p>
         </form>
       </div>
 
-      <p class="lead-archive-note">Prefer to read first? The plain-English notes this checklist is drawn from are in the <a href="insights/index.html">insights archive</a> — the same material posted on LinkedIn.</p>
+      <p class="lead-archive-note">Prefer to read first? The plain-English notes these are drawn from are in the <a href="insights/index.html">insights archive</a> — the same material posted on LinkedIn.</p>
     </div>
   </section>
 

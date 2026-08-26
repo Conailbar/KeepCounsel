@@ -248,6 +248,20 @@
     }
   }
 
+  /* ---------- Freebie picker buttons ---------- */
+  var freebieButtons = Array.prototype.slice.call(document.querySelectorAll('.freebie-btn'));
+  freebieButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var targetId = btn.getAttribute('data-resource');
+      var checkbox = targetId ? document.getElementById(targetId) : null;
+      if (checkbox) checkbox.checked = true;
+      var panel = document.getElementById('lead-panel');
+      if (panel) panel.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'center' });
+      var nameField = document.getElementById('lead-name');
+      if (nameField) nameField.focus({ preventScroll: true });
+    });
+  });
+
   /* ---------- Lead capture form (static demo) ---------- */
   var leadForm = document.getElementById('lead-form');
   if (leadForm) {
@@ -258,7 +272,7 @@
       leadForm.querySelectorAll('input').forEach(function (i) { i.disabled = true; });
       btn.textContent = 'Thanks — this is a demo';
       btn.disabled = true;
-      if (foot) foot.textContent = 'Wire this up to a real email tool so the checklist actually sends.';
+      if (foot) foot.textContent = 'Wire this up to a real email tool so the resources actually send.';
     });
   }
 
