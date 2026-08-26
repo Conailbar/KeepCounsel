@@ -638,7 +638,7 @@ section { position: relative; }
 .footer-col a:hover { color: var(--ink); }
 .footer-reg { padding-top: 2rem; display: flex; flex-direction: column; gap: 0.6rem; }
 .footer-reg p { font-size: 0.78rem; color: var(--fg-faint); line-height: 1.7; max-width: 68rem; }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1.6rem; padding-top: 1.6rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--fg-faint); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem 1.6rem; margin-top: 1.6rem; padding-top: 1.6rem; padding-right: clamp(0rem, 10vw, 5.5rem); border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--fg-faint); }
 .footer-social { display: flex; gap: 0.8rem; }
 .footer-social a { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; transition: background var(--dur-fast), border-color var(--dur-fast); }
 .footer-social a:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
@@ -725,6 +725,38 @@ section { position: relative; }
 }
 .legal-brief svg { color: var(--gold); flex-shrink: 0; margin-top: 0.15rem; }
 .legal-brief p { margin: 0; font-size: 0.92rem; color: var(--fg); }
+
+/* ---- Cookie consent banner --------------------------------------------- */
+.cookie-banner {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 1000;
+  background: var(--ink); color: var(--paper);
+  border-top: 2px solid var(--gold);
+  transform: translateY(100%);
+  transition: transform 0.5s var(--ease-out);
+  box-shadow: 0 -12px 32px -8px rgba(0, 0, 0, 0.35);
+}
+.cookie-banner.is-visible { transform: translateY(0); }
+.cookie-banner-inner {
+  max-width: 74rem; margin: 0 auto; padding: 1.3rem 1.6rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.6rem; flex-wrap: wrap;
+}
+.cookie-banner-inner p { margin: 0; font-size: 0.88rem; color: var(--paper); opacity: 0.9; max-width: 46rem; }
+.cookie-banner-inner p a { color: var(--gold-bright); text-decoration: underline; text-underline-offset: 2px; }
+.cookie-banner-actions { display: flex; gap: 0.7rem; flex-shrink: 0; }
+.cookie-banner .btn-ghost { border-color: rgba(250, 247, 241, 0.35); color: var(--paper); }
+.cookie-banner .btn-ghost:hover { border-color: var(--paper); background: rgba(250, 247, 241, 0.08); }
+
+.cookie-prefs-link {
+  background: none; border: none; padding: 0; margin: 0;
+  font: inherit; font-size: 0.82rem; color: var(--fg-faint);
+  text-decoration: underline; text-underline-offset: 2px; cursor: pointer;
+}
+.cookie-prefs-link:hover { color: var(--gold); }
+
+@media (max-width: 640px) {
+  .cookie-banner-inner { flex-direction: column; align-items: stretch; text-align: left; }
+  .cookie-banner-actions { justify-content: flex-end; }
+}
 
 .legal-toc { max-width: 46rem; margin-top: 2.2rem; padding: 1.2rem 1.5rem; border: 1px solid var(--border); border-radius: 0.9rem; background: var(--surface); }
 .legal-toc-label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.7rem; }
