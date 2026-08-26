@@ -5,15 +5,13 @@
    Choice is stored in localStorage and can be changed at any time via the
    "Cookie preferences" link this script injects into the footer.
 
-   SETUP: replace GA_MEASUREMENT_ID below with your real GA4 property ID
-   (looks like "G-XXXXXXXXXX") once you've created one at analytics.google.com.
-   Until then this file is inert — no script loads either way.
+   GA4 property: KeepCounsel (analytics.google.com), web data stream ID 15504924540.
    ========================================================================== */
 
 (function () {
   "use strict";
 
-  var GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // TODO: replace with your real GA4 ID
+  var GA_MEASUREMENT_ID = "G-9KHEP0B4VT";
   var STORAGE_KEY = "kc_analytics_consent"; // "granted" | "denied"
   var gaLoaded = false;
 
