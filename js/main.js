@@ -248,6 +248,16 @@
     }
   }
 
+  /* ---------- AI Contract Review form success state (returning from FormSubmit) ---------- */
+  if (new URLSearchParams(window.location.search).get('sent') === 'ai-review') {
+    var aiForm = document.getElementById('ai-review-form');
+    var aiSuccess = document.getElementById('ai-review-success');
+    if (aiForm) aiForm.style.display = 'none';
+    if (aiSuccess) aiSuccess.classList.add('is-visible');
+    var cleanUrl = window.location.pathname + '#ai-review';
+    window.history.replaceState({}, document.title, cleanUrl);
+  }
+
   /* ---------- Freebie picker buttons ---------- */
   var freebieButtons = Array.prototype.slice.call(document.querySelectorAll('.freebie-btn'));
   freebieButtons.forEach(function (btn) {

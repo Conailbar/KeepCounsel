@@ -538,6 +538,14 @@ section { position: relative; }
 .dropzone-file button { color: var(--fg-faint); flex-shrink: 0; }
 .dropzone-note { font-size: 0.78rem; color: var(--fg-faint); margin-top: 0.9rem; text-align: center; }
 
+.ai-review-form { margin-top: 0; }
+.ai-review-form .field { margin-top: 1rem; margin-bottom: 0; }
+.ai-review-form .field label { color: var(--fg); }
+.ai-review-form .field input { background: var(--surface); border: 1px solid var(--border); color: var(--fg); }
+.ai-review-form .field input::placeholder { color: var(--fg-faint); }
+.ai-review-form .field input:focus { border-color: var(--gold); outline: none; }
+.ai-review-form .btn { margin-top: 1.3rem; }
+
 .ai-review-copy h3 { font-size: var(--fs-h2); margin-bottom: 0.9rem; }
 .ai-review-copy p { color: var(--fg-muted); margin-bottom: 1.2rem; }
 .ai-review-points { display: flex; flex-direction: column; gap: 0.7rem; margin-top: 1.2rem; }

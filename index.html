@@ -24,11 +24,14 @@
   Replace every [PLACEHOLDER] before this site is used publicly.
 
   CAL.COM SETUP: Cal.com username "keepcounsel" is wired in throughout.
-  The general call buttons already point at the live "30 min meeting"
-  Link (keepcounsel/30min) — done, no action needed there. Still to
-  create: a Link with slug exactly "ai-contract-review" for the AI
-  Contract Review product, with a file-upload custom question added to
-  its booking form so contracts actually reach you.
+  The general call buttons point at the live "30 min meeting" Link
+  (keepcounsel/30min) — done, no action needed there. The AI Contract
+  Review product does NOT use Cal.com (it can't handle file uploads —
+  confirmed with Cal.com directly, that feature request was closed as
+  "not planned"). It submits via its own form (#ai-review-form) to
+  FormSubmit.co, which emails the file straight to hello@keepcounsel.io.
+  First real submission triggers a one-time confirmation email from
+  FormSubmit — click it once to activate delivery.
   ---------------------------------------------------------------------
 -->
 </head>
@@ -434,25 +437,48 @@
 
       <div class="ai-review-panel" data-reveal>
         <div>
-          <div class="dropzone" role="button" tabindex="0" aria-label="Upload your contract">
-            <div class="dz-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3m0 0 4 4m-4-4-4 4"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg></div>
-            <strong>Drop your contract here, or click to choose a file</strong>
-            <span class="hint">PDF or Word · Up to 10 pages</span>
-            <input type="file" accept=".pdf,.doc,.docx" aria-hidden="true" tabindex="-1">
-          </div>
-          <div class="dropzone-file">
-            <span class="fname">filename.pdf</span>
-            <button type="button" aria-label="Remove file"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-          </div>
-          <p class="dropzone-note">This step just gets you started — you'll attach the file again on the secure booking form so it reaches me directly. Nothing is uploaded anywhere until then.</p>
-
-          <div class="tier-grid" style="grid-template-columns:1fr;max-width:22rem;margin-inline:auto;">
+          <div class="tier-grid" style="grid-template-columns:1fr;max-width:22rem;margin-inline:auto;margin-bottom:1.6rem;">
             <div class="tier-card is-recommended" style="text-align:center;">
               <span class="tier-name">Up to 10 pages</span>
               <div class="tier-price">£50<span> fixed fee</span></div>
               <p>SaaS terms, NDAs, and most single-purpose agreements.</p>
-              <button class="btn btn-gold btn-sm" style="margin-top:0.6rem;" data-cal-namespace="ai-contract-review" data-cal-link="keepcounsel/ai-contract-review" data-cal-config='{"layout":"month_view"}'>Get this reviewed</button>
             </div>
+          </div>
+
+          <form class="ai-review-form" id="ai-review-form" action="https://formsubmit.co/hello@keepcounsel.io" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_subject" value="New AI Contract Review submission">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://keepcounsel.io/index.html?sent=ai-review#ai-review">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+            <div class="dropzone" role="button" tabindex="0" aria-label="Upload your contract">
+              <div class="dz-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3m0 0 4 4m-4-4-4 4"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg></div>
+              <strong>Drop your contract here, or click to choose a file</strong>
+              <span class="hint">PDF or Word · Up to 10 pages · Max 10MB</span>
+              <input type="file" name="attachment" accept=".pdf,.doc,.docx" required aria-hidden="true" tabindex="-1">
+            </div>
+            <div class="dropzone-file">
+              <span class="fname">filename.pdf</span>
+              <button type="button" aria-label="Remove file"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+            </div>
+
+            <div class="field">
+              <label for="ai-review-name">Your name</label>
+              <input id="ai-review-name" name="name" type="text" placeholder="Jane" required>
+            </div>
+            <div class="field">
+              <label for="ai-review-email">Work email</label>
+              <input id="ai-review-email" name="_replyto" type="email" placeholder="jane@yourcompany.com" required>
+            </div>
+
+            <button type="submit" class="btn btn-gold btn-block">Send for review</button>
+            <p class="dropzone-note">Sent straight to me — I'll reply within 2 business days confirming the fixed fee before anything's charged.</p>
+          </form>
+          <div class="form-success" id="ai-review-success">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--gold);margin-bottom:0.8rem;"><path d="M9 12l2 2 4-4M12 3l8 4v5c0 5-3.4 8.6-8 9-4.6-.4-8-4-8-9V7l8-4Z"/></svg>
+            <p style="font-weight:700;color:var(--fg);">Got it — thank you.</p>
+            <p style="color:var(--fg-muted);font-size:0.92rem;">I'll take a look and reply within 2 business days with the fixed fee to confirm before anything's charged.</p>
           </div>
         </div>
 
