@@ -474,7 +474,7 @@ section { position: relative; }
   35% { text-shadow: 0 0 14px var(--red-20); }
   100% { text-shadow: 0 0 0 rgba(166,59,50,0); }
 }
-.price-first-month { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: var(--gold); margin-top: 0.4rem; }
+.price-first-month { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: var(--red); margin-top: 0.4rem; }
 .price-revert-note { font-size: 0.74rem; color: var(--fg-faint); margin-top: 0.2rem; }
 @media (prefers-reduced-motion: reduce) {
   .price-was::after, .price-off { transition-duration: 1ms; animation: none; }
