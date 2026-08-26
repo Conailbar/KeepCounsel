@@ -436,6 +436,8 @@ section { position: relative; }
 .fee-card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
 .fee-card h3 { font-size: 1.15rem; }
 .fee-price { font-family: var(--font-display); font-size: 1.4rem; color: var(--gold); white-space: nowrap; }
+.fee-card .retainer-price-row { margin-top: 0.7rem; }
+.fee-card .price-first-month { margin-top: 0.3rem; }
 .fee-card p { color: var(--fg-muted); font-size: 0.92rem; }
 
 .retainer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
@@ -459,14 +461,14 @@ section { position: relative; }
   background: var(--red); transform: translateY(-50%);
   transition: width 650ms var(--ease-out) 450ms;
 }
-.retainer-card.is-visible .price-was::after { width: 105%; }
+.retainer-card.is-visible .price-was::after, .fee-card.is-visible .price-was::after { width: 105%; }
 .price-off {
   font-family: var(--font-display); font-weight: 600; font-size: 1.65rem; color: var(--red);
   display: inline-flex; align-items: baseline; gap: 0.3rem; line-height: 1;
   opacity: 0; transform: scale(0.85); transition: opacity 380ms var(--ease-out) 950ms, transform 380ms var(--ease-out) 950ms;
 }
 .price-off small { font-family: var(--font-body); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--red); }
-.retainer-card.is-visible .price-off { opacity: 1; transform: scale(1); animation: price-off-pulse 900ms ease-out 1050ms; }
+.retainer-card.is-visible .price-off, .fee-card.is-visible .price-off { opacity: 1; transform: scale(1); animation: price-off-pulse 900ms ease-out 1050ms; }
 @keyframes price-off-pulse {
   0% { text-shadow: 0 0 0 rgba(166,59,50,0); }
   35% { text-shadow: 0 0 14px var(--red-20); }
