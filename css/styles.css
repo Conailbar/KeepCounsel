@@ -589,14 +589,15 @@ section { position: relative; }
 
 /* ---- Pricing extras: discount callout + payment options ----------------*/
 .discount-callout {
-  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
   background: linear-gradient(120deg, var(--gold-10), transparent);
   border: 1px solid var(--gold-20); border-radius: var(--radius-md);
   padding: 1.2rem 1.5rem; margin-bottom: 1.8rem;
 }
+.discount-callout p { margin: 0; }
 .discount-callout .badge-lg {
-  flex-shrink: 0; background: var(--gold); color: #fff; font-family: var(--font-display); font-weight: 600;
-  font-size: 1.1rem; padding: 0.6rem 1.1rem; border-radius: var(--radius-sm); white-space: nowrap;
+  display: inline-block; vertical-align: middle; background: var(--gold); color: #fff; font-family: var(--font-display); font-weight: 600;
+  font-size: 1.1rem; padding: 0.4rem 0.9rem; border-radius: var(--radius-sm); white-space: nowrap; margin-right: 0.5rem;
+  line-height: 1.5;
 }
 .discount-callout p { margin: 0; font-size: 0.92rem; color: var(--fg); }
 .discount-callout strong { color: var(--gold); }
