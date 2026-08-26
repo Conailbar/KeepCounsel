@@ -22,6 +22,9 @@
   --gold-10: rgba(169, 130, 47, 0.1);
   --gold-20: rgba(169, 130, 47, 0.22);
   --green: #34573f;
+  --red: #a63b32;
+  --red-10: rgba(166, 59, 50, 0.1);
+  --red-20: rgba(166, 59, 50, 0.28);
   --line: rgba(16, 26, 46, 0.12);
 
   /* Semantic */
@@ -435,15 +438,44 @@ section { position: relative; }
 .fee-price { font-family: var(--font-display); font-size: 1.4rem; color: var(--gold); white-space: nowrap; }
 .fee-card p { color: var(--fg-muted); font-size: 0.92rem; }
 
-.retainer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
-.retainer-card { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem 1.7rem; display: flex; flex-direction: column; }
+.retainer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+.retainer-card { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.8rem 1.4rem; display: flex; flex-direction: column; }
 .retainer-card.is-popular { border-color: var(--gold); box-shadow: 0 20px 45px -22px var(--gold-20); }
-.retainer-badge { position: absolute; top: -13px; left: 1.7rem; background: var(--gold); color: #fff; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.06em; padding: 0.35rem 0.75rem; border-radius: 999px; text-transform: uppercase; }
-.retainer-card h3 { font-size: 1.2rem; }
-.retainer-hours { font-size: 0.85rem; color: var(--gold); font-weight: 700; margin-top: 0.4rem; }
-.retainer-price { font-family: var(--font-display); font-size: 2.1rem; margin-top: 1rem; }
-.retainer-price span { font-family: var(--font-body); font-size: 0.85rem; color: var(--fg-faint); font-weight: 600; }
-.retainer-card p.desc { color: var(--fg-muted); font-size: 0.9rem; margin-top: 0.6rem; }
+.retainer-badge { position: absolute; top: -13px; left: 1.4rem; background: var(--gold); color: #fff; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.06em; padding: 0.35rem 0.75rem; border-radius: 999px; text-transform: uppercase; }
+.retainer-card h3 { font-size: 1.15rem; }
+.retainer-hours { font-size: 0.83rem; color: var(--gold); font-weight: 700; margin-top: 0.4rem; }
+.retainer-card p.desc { color: var(--fg-muted); font-size: 0.87rem; margin-top: 0.6rem; }
+
+/* ---- Retainer first-month discount pricing (crossed-out + %off) -------- */
+.retainer-price-block { margin-top: 1rem; }
+.retainer-price-row { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
+.price-was {
+  position: relative; display: inline-block;
+  font-family: var(--font-display); font-size: 1.3rem; color: var(--fg-faint);
+}
+.price-was span { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; }
+.price-was::after {
+  content: ''; position: absolute; left: 0; top: 52%; height: 2px; width: 0;
+  background: var(--red); transform: translateY(-50%);
+  transition: width 650ms var(--ease-out) 450ms;
+}
+.retainer-card.is-visible .price-was::after { width: 105%; }
+.price-off {
+  font-family: var(--font-display); font-weight: 600; font-size: 1.65rem; color: var(--red);
+  display: inline-flex; align-items: baseline; gap: 0.3rem; line-height: 1;
+  opacity: 0; transform: scale(0.85); transition: opacity 380ms var(--ease-out) 950ms, transform 380ms var(--ease-out) 950ms;
+}
+.price-off small { font-family: var(--font-body); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--red); }
+.retainer-card.is-visible .price-off { opacity: 1; transform: scale(1); animation: price-off-pulse 900ms ease-out 1050ms; }
+@keyframes price-off-pulse {
+  0% { text-shadow: 0 0 0 rgba(166,59,50,0); }
+  35% { text-shadow: 0 0 14px var(--red-20); }
+  100% { text-shadow: 0 0 0 rgba(166,59,50,0); }
+}
+.price-revert-note { font-size: 0.74rem; color: var(--fg-faint); margin-top: 0.35rem; }
+@media (prefers-reduced-motion: reduce) {
+  .price-was::after, .price-off { transition-duration: 1ms; animation: none; }
+}
 .retainer-list { margin-top: 1.4rem; display: flex; flex-direction: column; gap: 0.65rem; flex-grow: 1; }
 .retainer-list li { display: flex; gap: 0.6rem; font-size: 0.88rem; color: var(--fg-muted); align-items: flex-start; }
 .retainer-list svg { flex-shrink: 0; margin-top: 0.15rem; color: var(--green); }
@@ -815,6 +847,9 @@ section { position: relative; }
 @media (max-width: 640px) { .legal-toc ol { grid-template-columns: 1fr; } }
 
 /* ---- Responsive ---------------------------------------------------------*/
+@media (max-width: 1180px) {
+  .retainer-grid { grid-template-columns: repeat(2, 1fr); max-width: 44rem; margin-inline: auto; }
+}
 @media (max-width: 1020px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-panel { max-width: 32rem; }
