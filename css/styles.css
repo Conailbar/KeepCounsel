@@ -712,6 +712,7 @@ section { position: relative; }
 .legal-body h2 { font-size: 1.3rem; margin-top: 1rem; }
 .legal-body h3 { font-size: 1.05rem; }
 .legal-body p, .legal-body li { color: var(--fg-muted); font-size: 0.96rem; }
+.legal-body section p + p { margin-top: 1rem; }
 .legal-body ul { list-style: disc; padding-left: 1.4rem; display: flex; flex-direction: column; gap: 0.5rem; }
 .legal-body a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
 .legal-body section { scroll-margin-top: 5.5rem; }
