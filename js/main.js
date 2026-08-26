@@ -294,17 +294,22 @@
     });
   }
 
-  /* ---------- Lead capture form (static demo) ---------- */
+  /* ---------- Lead capture form (real submission via FormSubmit) ---------- */
   var leadForm = document.getElementById('lead-form');
   if (leadForm) {
-    leadForm.addEventListener('submit', function (e) {
-      e.preventDefault();
+    leadForm.addEventListener('submit', function () {
       var btn = leadForm.querySelector('button[type="submit"]');
-      var foot = leadForm.querySelector('.lead-form-foot');
-      leadForm.querySelectorAll('input').forEach(function (i) { i.disabled = true; });
-      btn.textContent = 'Thanks — this is a demo';
+      btn.textContent = 'Sending…';
       btn.disabled = true;
-      if (foot) foot.textContent = 'Wire this up to a real email tool so the resources actually send.';
+    });
+  }
+  if (new URLSearchParams(window.location.search).get('sent') === 'freebies') {
+    var freebieModalEl = document.getElementById('freebie-modal');
+    if (freebieModalEl) freebieModalEl.classList.remove('is-open');
+    window.history.replaceState({}, document.title, window.location.pathname + '#insights');
+    window.addEventListener('load', function () {
+      var target = document.getElementById('insights');
+      if (target) target.scrollIntoView({ block: 'start' });
     });
   }
 

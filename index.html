@@ -629,7 +629,13 @@
             <label class="resource-pick"><input type="checkbox" name="resource" value="redflag" id="pick-redflag"> The Contract Red-Flag Checklist</label>
             <label class="resource-pick"><input type="checkbox" name="resource" value="healthcheck" id="pick-healthcheck"> The Legal Health Check-list</label>
           </div>
-          <form class="lead-form" id="lead-form" style="background:none;border:none;padding:0;margin-top:1.4rem;">
+          <form class="lead-form" id="lead-form" action="https://formsubmit.co/hello@keepcounsel.io" method="POST" style="background:none;border:none;padding:0;margin-top:1.4rem;">
+            <input type="hidden" name="_subject" value="Free resources requested">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://keepcounsel.io/index.html?sent=freebies#insights">
+            <input type="hidden" name="_autoresponse" value="Thanks for your interest in KeepCounsel — here are all three resources, so grab whichever you need:&#10;&#10;The KeepCounsel NDA: https://keepcounsel.io/downloads/keepcounsel-nda.docx&#10;The Contract Red-Flag Checklist: https://keepcounsel.io/downloads/keepcounsel-contract-red-flag-checklist.docx&#10;The Legal Health Check-list: https://keepcounsel.io/downloads/keepcounsel-legal-health-checklist.docx&#10;&#10;If anything you read raises a question, just reply to this email — Conail.">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
             <div class="field">
               <label for="lead-name">First name</label>
               <input id="lead-name" name="name" type="text" placeholder="Jane" required>
@@ -643,7 +649,7 @@
               <input id="lead-company" name="company" type="text" placeholder="Your Company Ltd" required>
             </div>
             <button type="submit" class="btn btn-gold btn-block">Send me these</button>
-            <p class="lead-form-foot">Demo form — connect to an email tool (e.g. Mailchimp, ConvertKit, Beehiiv) to actually deliver the resources and capture the contact. No data is stored or transmitted by this static page yet.</p>
+            <p class="lead-form-foot">Sent straight to your inbox, and I'll see who's interested in what.</p>
           </form>
         </div>
       </div>
