@@ -169,6 +169,15 @@
     });
   });
 
+  /* ---------- Jump-to-tab links (e.g. retainer callout) ---------- */
+  var jumpLinks = Array.prototype.slice.call(document.querySelectorAll('[data-jump-tab]'));
+  jumpLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      var wantedTab = tabs.filter(function (t) { return t.getAttribute('data-tab') === link.getAttribute('data-jump-tab'); })[0];
+      if (wantedTab && !wantedTab.classList.contains('is-active')) wantedTab.click();
+    });
+  });
+
   /* ---------- Testimonial carousel ---------- */
   var slides = Array.prototype.slice.call(document.querySelectorAll('.testi-slide'));
   var dots = Array.prototype.slice.call(document.querySelectorAll('.testi-dot'));
