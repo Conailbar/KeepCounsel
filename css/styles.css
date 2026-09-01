@@ -506,6 +506,27 @@ section { position: relative; }
 }
 .credential-card strong { display: block; font-size: 1rem; margin-bottom: 0.35rem; }
 .credential-card span { color: var(--fg-muted); font-size: 0.9rem; }
+
+/* ---- Traditional firm vs KeepCounsel comparison ------------------------ */
+.compare-table { border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; margin-top: 2.4rem; }
+.compare-row { display: grid; grid-template-columns: 1.1fr 1fr 1fr; }
+.compare-row + .compare-row { border-top: 1px solid var(--border); }
+.compare-row > div { padding: 1.1rem 1.4rem; font-size: 0.92rem; line-height: 1.45; }
+.compare-head { background: var(--bg-alt); }
+.compare-head > div { padding-block: 0.9rem; font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--fg-faint); }
+.compare-head .compare-us { color: var(--gold); background: none; }
+.compare-label { font-weight: 700; color: var(--fg); background: var(--surface); }
+.compare-them { color: var(--fg-muted); }
+.compare-us { color: var(--fg); background: var(--gold-10); display: flex; align-items: flex-start; gap: 0.55rem; font-weight: 600; }
+.compare-us svg { flex-shrink: 0; color: var(--gold); margin-top: 0.15rem; }
+@media (max-width: 640px) {
+  .compare-head { display: none; }
+  .compare-row { grid-template-columns: 1fr; }
+  .compare-them, .compare-us { padding-top: 0.6rem; }
+  .compare-them::before { content: 'Traditional firm'; display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--fg-faint); margin-bottom: 0.3rem; }
+  .compare-us { flex-wrap: wrap; }
+  .compare-us::before { content: 'KeepCounsel'; display: block; width: 100%; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--gold); margin-bottom: 0.3rem; }
+}
 .about-copy p { color: var(--fg-muted); margin-bottom: 1.1rem; }
 .about-copy p:first-of-type { font-size: var(--fs-lead); color: var(--fg); }
 
