@@ -183,7 +183,7 @@ section { position: relative; }
 .site-header {
   position: sticky;
   inset-inline: 0;
-  top: 0;
+  top: var(--preheader-h, 0px);
   z-index: 100;
   padding-block: 1.35rem;
   background: var(--bg);
@@ -825,7 +825,10 @@ section { position: relative; }
 @media (prefers-reduced-motion: reduce) { .hero h1 .hl::after { animation: none; transform: scaleX(1); } }
 
 /* ---- Utility banner (announcement) --------------------------------------*/
-.pre-header { background: var(--ink); color: var(--paper); text-align: center; padding: 0.55rem 1rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em; }
+.pre-header {
+  position: sticky; top: 0; z-index: 101;
+  background: var(--ink); color: var(--paper); text-align: center; padding: 0.55rem 1rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em;
+}
 .pre-header a { text-decoration: underline; text-underline-offset: 2px; color: var(--gold-bright); }
 
 /* ---- Legal pages ---------------------------------------------------------*/

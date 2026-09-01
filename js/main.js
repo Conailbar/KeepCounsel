@@ -14,6 +14,14 @@
     });
   }
 
+  /* ---------- Sticky pre-header offset (keeps nav directly under the offer banner) ---------- */
+  var preHeader = document.querySelector('.pre-header');
+  function syncPreHeaderHeight() {
+    if (preHeader) document.documentElement.style.setProperty('--preheader-h', preHeader.offsetHeight + 'px');
+  }
+  syncPreHeaderHeight();
+  window.addEventListener('resize', syncPreHeaderHeight);
+
   /* ---------- Header scroll state ---------- */
   var header = document.querySelector('.site-header');
   var lastY = window.scrollY;
