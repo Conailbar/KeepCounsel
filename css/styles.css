@@ -537,9 +537,30 @@ section { position: relative; }
 .compare-us svg { flex-shrink: 0; color: var(--gold); margin-top: 0.15rem; }
 .compare-scroll-hint { display: none; }
 @media (max-width: 640px) {
-  .compare-row > div { padding: 0.9rem 1rem; font-size: 0.85rem; }
-  .compare-label { padding-right: 0.7rem; box-shadow: 2px 0 6px -4px rgba(16,26,46,0.25); }
-  .compare-scroll-hint { display: block; text-align: center; font-size: 0.76rem; color: var(--fg-faint); margin-top: 0.6rem; }
+  /* No horizontal scrolling on mobile — each row becomes its own compact
+     label + side-by-side (Them | Us) mini-comparison, so it's still a
+     genuine at-a-glance comparison, just stacked row by row. */
+  .compare-scroll { overflow-x: visible; border: none; margin-top: 1.8rem; }
+  .compare-table { min-width: 0; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+  .compare-head { display: none; }
+  .compare-row {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "label label" "them us";
+  }
+  .compare-row > div { padding: 0.6rem 0.85rem; font-size: 0.82rem; line-height: 1.38; }
+  .compare-label {
+    grid-area: label; position: static; box-shadow: none;
+    padding: 0.85rem 0.85rem 0.3rem; font-size: 0.86rem;
+  }
+  .compare-them { grid-area: them; padding-bottom: 0.85rem; border-right: 1px solid var(--border); }
+  .compare-us { grid-area: us; padding-bottom: 0.85rem; }
+  .compare-them::before, .compare-us::before {
+    display: block; font-size: 0.63rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.03em; margin-bottom: 0.3rem;
+  }
+  .compare-them::before { content: 'Traditional firm'; color: var(--fg-faint); }
+  .compare-us::before { content: 'KeepCounsel'; width: 100%; color: var(--gold); }
+  .compare-us { flex-wrap: wrap; }
 }
 .about-copy p { color: var(--fg-muted); margin-bottom: 1.1rem; }
 .about-copy p:first-of-type { font-size: var(--fs-lead); color: var(--fg); }
@@ -834,6 +855,7 @@ section { position: relative; }
   background: var(--ink); color: var(--paper); text-align: center; padding: 0.55rem 1rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em;
 }
 .pre-header a { text-decoration: underline; text-underline-offset: 2px; color: var(--gold-bright); }
+.pre-header-flag { color: #e8776b; }
 
 /* ---- Legal pages ---------------------------------------------------------*/
 .legal-page { padding-top: clamp(3rem, 6vw, 5rem); padding-bottom: 6rem; }
