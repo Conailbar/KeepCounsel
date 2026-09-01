@@ -494,7 +494,9 @@ section { position: relative; }
 @media (prefers-reduced-motion: reduce) {
   .price-was::after, .price-off { transition-duration: 1ms; animation: none; }
 }
+.retainer-includes { margin-top: 1.4rem; font-size: 0.82rem; font-weight: 700; color: var(--gold); }
 .retainer-list { margin-top: 1.4rem; display: flex; flex-direction: column; gap: 0.65rem; flex-grow: 1; }
+.retainer-includes + .retainer-list { margin-top: 0.6rem; }
 .retainer-list li { display: flex; gap: 0.6rem; font-size: 0.88rem; color: var(--fg-muted); align-items: flex-start; }
 .retainer-list svg { flex-shrink: 0; margin-top: 0.15rem; color: var(--green); }
 .retainer-card .btn { margin-top: 1.6rem; }
