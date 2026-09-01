@@ -4,12 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Refer a Client — KeepCounsel</title>
-<meta name="description" content="Refer someone to KeepCounsel — £150 thank-you for any referral that leads to over £1,000 of work.">
+<meta name="description" content="Introduce a client to KeepCounsel and earn 15-20% of their fees for 12 months.">
 <meta name="theme-color" content="#101a2e">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect x='34' y='20' width='8' height='10' fill='%23101a2e'/%3E%3Crect x='48' y='20' width='8' height='10' fill='%23101a2e'/%3E%3Crect x='34' y='30' width='22' height='60' fill='%23101a2e'/%3E%3Cpath d='M56 60 L88 40' stroke='%23101a2e' stroke-width='19'/%3E%3Cpath d='M56 60 L88 80' stroke='%23101a2e' stroke-width='19'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/styles.css">
+<style>
+  .ref-hero { text-align: center; max-width: 40rem; margin: 0 auto 2.4rem; }
+  .ref-hero .eyebrow { display: block; margin-bottom: 0.7rem; }
+  .ref-hero h1 { margin-bottom: 0.8rem; }
+  .ref-hero p { color: var(--fg-muted); font-size: 1.02rem; }
+  .ref-table .compare-row { grid-template-columns: 1.3fr 1fr; }
+  .ref-table .compare-head { grid-template-columns: 1.3fr 1fr; }
+  .ref-steps { grid-template-columns: repeat(3, 1fr) !important; margin: 2.2rem 0; }
+  @media (max-width: 720px) { .ref-steps { grid-template-columns: 1fr !important; } }
+  .ref-pay { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.9rem; }
+  .ref-pay span { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 600; color: var(--fg-muted); background: var(--bg-alt); padding: 0.35rem 0.75rem; border-radius: 999px; }
+  .ref-pay svg { color: var(--gold); flex-shrink: 0; }
+  .ref-cta { text-align: center; margin-top: 2.6rem; padding: 2rem; background: var(--ink); border-radius: var(--radius-md); }
+  .ref-cta h2 { color: var(--paper); margin-bottom: 0.6rem; }
+  .ref-cta p { color: rgba(250,247,241,0.75); margin-bottom: 1.4rem; }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -27,36 +43,68 @@
 
 <main id="main" class="legal-page">
   <div class="wrap">
-    <span class="eyebrow">Referrals</span>
-    <h1>Know someone who needs a lawyer like this?</h1>
-    <p class="updated">Simple version: introduce someone, and if it turns into real work, I say thank you properly.</p>
+    <div class="ref-hero" data-reveal>
+      <span class="eyebrow">Referrals</span>
+      <h1>Turn your network into a recurring reward.</h1>
+      <p>Know a founder, or work alongside people who do? Introduce them to KeepCounsel — and earn a share of what they pay, for a full year, every time.</p>
+    </div>
 
-    <div class="legal-brief" data-reveal>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      <p><strong>£150</strong>, once the person you introduce becomes a client and their spend with KeepCounsel passes <strong>£1,000</strong>. No cap on how many people you introduce.</p>
+    <div class="compare-table ref-table" data-reveal>
+      <div class="compare-row compare-head">
+        <div class="compare-label"></div>
+        <div class="compare-us">Your reward</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-label">Any referral that becomes a client</div>
+        <div class="compare-us"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 15% of their fees, for 12 months</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-label">Once you've referred 5+ retainer clients</div>
+        <div class="compare-us"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 20% of their fees, for 12 months, on every referral after that</div>
+      </div>
+    </div>
+
+    <div class="process-list ref-steps" data-reveal-group>
+      <div class="process-step" data-reveal>
+        <h3>Introduce us</h3>
+        <p>Email a quick intro, or just tell them to mention your name when they book a call.</p>
+      </div>
+      <div class="process-step" data-reveal style="transition-delay:80ms">
+        <h3>They engage KeepCounsel</h3>
+        <p>Once they sign an Order Form and start paying fees, your reward clock starts.</p>
+      </div>
+      <div class="process-step" data-reveal style="transition-delay:160ms">
+        <h3>You get paid, monthly</h3>
+        <p>15&ndash;20% of what they pay, every month, for 12 months &mdash; automatically, no chasing.</p>
+      </div>
     </div>
 
     <div class="legal-body">
       <section>
-        <h2>How it works</h2>
-        <p>Email <a href="mailto:hello@keepcounsel.io">hello@keepcounsel.io</a> and introduce me to whoever you have in mind — or just tell them to mention your name when they book a call. Once their spend with KeepCounsel passes £1,000, I'll send you £150, by bank transfer, no questions asked.</p>
-        <p>If you're already on a KeepCounsel retainer yourself, that reward doubles to £300 — same process, same no-questions-asked payout.</p>
+        <h2>How you're paid</h2>
+        <p>Monthly, alongside my own billing cycle. By bank transfer as standard &mdash; or in USDT or BTC if you'd prefer, at the prevailing rate on the day.</p>
+        <div class="ref-pay">
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg> Bank transfer</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2.5 3-2.5s3 1.1 3 2.5-1.3 2-3 2-3 .6-3 2 1.3 2.5 3 2.5 3-1.1 3-2.5"/></svg> USDT</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 8h4.5a2 2 0 0 1 0 4H9m0 0h5a2 2 0 0 1 0 4H9m0-8V6m0 12v-2m3-10v1m0 9v1"/></svg> BTC</span>
+        </div>
       </section>
 
       <section>
         <h2>The one rule I have to follow</h2>
-        <p>As an SRA-regulated solicitor, I'm required to tell any client in writing when someone has referred them and is being paid for it. That's not optional on my end — it's a standard part of the client care information for that engagement, and it protects the person you've referred by making sure they know the introduction wasn't entirely disinterested. It doesn't affect your £150, and it's a formality most people barely notice.</p>
+        <p>As an SRA-regulated solicitor, I'm required to tell any client in writing when someone has referred them and is being paid for it. That's not optional on my end &mdash; it's a standard part of the client care information for that engagement, and it protects the person you've referred by making sure they know the introduction wasn't entirely disinterested. It doesn't affect your reward, and it's a formality most people barely notice.</p>
       </section>
 
       <section>
         <h2>Who this works for</h2>
-        <p>Anyone — a founder who's already a client, a friend at another company, an adviser or investor who sees a lot of businesses that need this kind of help. There's no limit on how many introductions you make.</p>
+        <p>Anyone &mdash; a founder who's already a client, a friend at another company, a fellow adviser on Connectd or elsewhere who sees businesses that need this kind of help but isn't the right fit to advise them on it themselves. No limit on how many introductions you make.</p>
       </section>
+    </div>
 
-      <section>
-        <h2>Contact</h2>
-        <p>Email <a href="mailto:hello@keepcounsel.io">hello@keepcounsel.io</a> with the introduction, or point them straight to the <a href="index.html#contact">contact page</a> and ask them to mention your name.</p>
-      </section>
+    <div class="ref-cta" data-reveal>
+      <h2>Ready to introduce someone?</h2>
+      <p>I'll send over a short, one-page referral agreement to formalise it &mdash; then you're set for every future introduction, not just this one.</p>
+      <a href="mailto:hello@keepcounsel.io?subject=Referral%20agreement" class="btn btn-gold">Email hello@keepcounsel.io</a>
     </div>
   </div>
 </main>
