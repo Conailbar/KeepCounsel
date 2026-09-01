@@ -327,7 +327,7 @@ section { position: relative; }
 .retainer-callout-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.6rem 1.6rem; padding-block: 0.85rem; text-align: center; }
 .retainer-callout-text { display: flex; align-items: center; gap: 0.55rem; color: var(--paper); font-size: 0.86rem; }
 .retainer-callout-text svg { color: var(--gold-bright); flex-shrink: 0; }
-.retainer-callout-flag {
+.discount-flag {
   display: inline-block; color: #fff; background: var(--red); font-weight: 700;
   padding: 0.1rem 0.5rem; border-radius: 999px; white-space: nowrap;
   box-shadow: 0 0 0 1px rgba(255,255,255,0.12) inset;
@@ -855,7 +855,6 @@ section { position: relative; }
   background: var(--ink); color: var(--paper); text-align: center; padding: 0.55rem 1rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em;
 }
 .pre-header a { text-decoration: underline; text-underline-offset: 2px; color: var(--gold-bright); }
-.pre-header-flag { color: #e8776b; }
 
 /* ---- Legal pages ---------------------------------------------------------*/
 .legal-page { padding-top: clamp(3rem, 6vw, 5rem); padding-bottom: 6rem; }
