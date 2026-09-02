@@ -524,43 +524,47 @@ section { position: relative; }
 .credential-card strong { display: block; font-size: 1rem; margin-bottom: 0.35rem; }
 .credential-card span { color: var(--fg-muted); font-size: 0.9rem; }
 
-/* ---- Traditional firm vs KeepCounsel comparison ------------------------ */
+/* ---- Traditional firm vs in-house vs KeepCounsel comparison ------------ */
 .compare-scroll { overflow-x: auto; overflow-y: hidden; margin-top: 2.4rem; -webkit-overflow-scrolling: touch; border: 1px solid var(--border); border-radius: var(--radius-md); }
-.compare-table { min-width: 488px; }
-.compare-row { display: grid; grid-template-columns: minmax(108px, 1.1fr) minmax(190px, 1fr) minmax(190px, 1fr); }
+.compare-table { min-width: 640px; }
+.compare-row { display: grid; grid-template-columns: minmax(108px, 0.9fr) minmax(175px, 1fr) minmax(175px, 1fr) minmax(175px, 1fr); }
 .compare-row + .compare-row { border-top: 1px solid var(--border); }
-.compare-row > div { padding: 1.1rem 1.4rem; font-size: 0.92rem; line-height: 1.45; }
+.compare-row > div { padding: 1.1rem 1.3rem; font-size: 0.9rem; line-height: 1.45; }
 .compare-head { background: var(--bg-alt); }
 .compare-head > div { padding-block: 0.9rem; font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--fg-faint); }
 .compare-head .compare-us { color: var(--gold); background: none; }
 .compare-label { font-weight: 700; color: var(--fg); background: var(--surface); position: sticky; left: 0; z-index: 1; }
-.compare-them { color: var(--fg-muted); }
+.compare-them, .compare-inhouse { color: var(--fg-muted); }
 .compare-us { color: var(--fg); background: var(--gold-10); display: flex; align-items: flex-start; gap: 0.55rem; font-weight: 600; }
 .compare-us svg { flex-shrink: 0; color: var(--gold); margin-top: 0.15rem; }
 .compare-scroll-hint { display: none; }
+.compare-caption { margin-top: 0.9rem; font-size: 0.86rem; color: var(--fg-faint); }
 @media (max-width: 640px) {
   /* No horizontal scrolling on mobile — each row becomes its own compact
-     label + side-by-side (Them | Us) mini-comparison, so it's still a
-     genuine at-a-glance comparison, just stacked row by row. */
+     label, then each of the three comparators stacked as its own labelled
+     block, so it stays a genuine comparison without cramming three columns
+     into one phone-width row. */
   .compare-scroll { overflow-x: visible; border: none; margin-top: 1.8rem; }
   .compare-table { min-width: 0; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
   .compare-head { display: none; }
   .compare-row {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "label label" "them us";
+    grid-template-columns: 1fr;
+    grid-template-areas: "label" "them" "inhouse" "us";
   }
-  .compare-row > div { padding: 0.6rem 0.85rem; font-size: 0.82rem; line-height: 1.38; }
+  .compare-row > div { padding: 0.6rem 1rem; font-size: 0.85rem; line-height: 1.4; }
   .compare-label {
     grid-area: label; position: static; box-shadow: none;
-    padding: 0.85rem 0.85rem 0.3rem; font-size: 0.86rem;
+    padding: 0.85rem 1rem 0.3rem; font-size: 0.86rem;
   }
-  .compare-them { grid-area: them; padding-bottom: 0.85rem; border-right: 1px solid var(--border); }
+  .compare-them { grid-area: them; }
+  .compare-inhouse { grid-area: inhouse; }
   .compare-us { grid-area: us; padding-bottom: 0.85rem; }
-  .compare-them::before, .compare-us::before {
+  .compare-them::before, .compare-inhouse::before, .compare-us::before {
     display: block; font-size: 0.63rem; font-weight: 700; text-transform: uppercase;
     letter-spacing: 0.03em; margin-bottom: 0.3rem;
   }
   .compare-them::before { content: 'Traditional firm'; color: var(--fg-faint); }
+  .compare-inhouse::before { content: 'In-house employee'; color: var(--fg-faint); }
   .compare-us::before { content: 'KeepCounsel'; width: 100%; color: var(--gold); }
   .compare-us { flex-wrap: wrap; }
 }
