@@ -592,7 +592,7 @@ section { position: relative; }
 .about-layout { display: grid; grid-template-columns: 260px 1fr; gap: 2.6rem; align-items: start; max-width: 52rem; }
 .about-layout:not(:has(.about-photo)) { grid-template-columns: 1fr; max-width: 44rem; }
 .about-photo { margin: 0; }
-.about-photo img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; object-position: center top; border-radius: var(--radius-lg); border: 1px solid var(--border); display: block; }
+.about-photo img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 1px solid var(--border); display: block; }
 @media (max-width: 720px) {
   .about-layout { grid-template-columns: 1fr; gap: 1.6rem; }
   .about-photo img { max-width: 200px; }
