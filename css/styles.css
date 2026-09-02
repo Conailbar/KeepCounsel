@@ -538,35 +538,25 @@ section { position: relative; }
 .compare-us { color: var(--fg); background: var(--gold-10); display: flex; align-items: flex-start; gap: 0.55rem; font-weight: 600; }
 .compare-us svg { flex-shrink: 0; color: var(--gold); margin-top: 0.15rem; }
 .compare-scroll-hint { display: none; }
-.compare-caption { margin-top: 0.9rem; font-size: 0.86rem; color: var(--fg-faint); }
+.compare-cta { display: flex; justify-content: center; margin-top: 1.8rem; }
+
+/* Mobile: a card per competitor instead of a row per criterion — far more
+   scannable on a narrow screen, and lets the KeepCounsel card close on its
+   own "Book an introductory call" button right where the case lands. */
+.compare-mobile { display: none; }
 @media (max-width: 640px) {
-  /* No horizontal scrolling on mobile — each row becomes its own compact
-     label, then each of the three comparators stacked as its own labelled
-     block, so it stays a genuine comparison without cramming three columns
-     into one phone-width row. */
-  .compare-scroll { overflow-x: visible; border: none; margin-top: 1.8rem; }
-  .compare-table { min-width: 0; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
-  .compare-head { display: none; }
-  .compare-row {
-    grid-template-columns: 1fr;
-    grid-template-areas: "label" "them" "inhouse" "us";
-  }
-  .compare-row > div { padding: 0.6rem 1rem; font-size: 0.85rem; line-height: 1.4; }
-  .compare-label {
-    grid-area: label; position: static; box-shadow: none;
-    padding: 0.85rem 1rem 0.3rem; font-size: 0.86rem;
-  }
-  .compare-them { grid-area: them; }
-  .compare-inhouse { grid-area: inhouse; }
-  .compare-us { grid-area: us; padding-bottom: 0.85rem; }
-  .compare-them::before, .compare-inhouse::before, .compare-us::before {
-    display: block; font-size: 0.63rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.03em; margin-bottom: 0.3rem;
-  }
-  .compare-them::before { content: 'Traditional firm'; color: var(--fg-faint); }
-  .compare-inhouse::before { content: 'In-house employee'; color: var(--fg-faint); }
-  .compare-us::before { content: 'KeepCounsel'; width: 100%; color: var(--gold); }
-  .compare-us { flex-wrap: wrap; }
+  .compare-scroll, .compare-cta { display: none; }
+  .compare-mobile { display: flex; flex-direction: column; gap: 1.1rem; margin-top: 1.8rem; }
+  .cm-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.4rem 1.3rem; }
+  .cm-name { font-size: 1.05rem; }
+  .cm-list { list-style: none; margin: 0.9rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 0.7rem; }
+  .cm-list li { font-size: 0.86rem; line-height: 1.42; color: var(--fg-muted); }
+  .cm-list strong { display: block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--fg-faint); margin-bottom: 0.2rem; }
+  .cm-featured { border-color: var(--gold); background: var(--gold-10); box-shadow: 0 16px 34px -20px var(--gold-20); position: relative; }
+  .cm-badge { display: inline-block; background: var(--ink); color: var(--gold-bright); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.3rem 0.7rem; border-radius: 999px; margin-bottom: 0.8rem; }
+  .cm-list-win li { color: var(--fg); font-weight: 600; display: flex; gap: 0.5rem; align-items: flex-start; }
+  .cm-list-win li svg { flex-shrink: 0; color: var(--gold); margin-top: 0.2rem; }
+  .cm-list-win strong { color: var(--gold); }
 }
 .about-copy p { color: var(--fg-muted); margin-bottom: 1.1rem; }
 .about-copy p:first-of-type { font-size: var(--fs-lead); color: var(--fg); }
