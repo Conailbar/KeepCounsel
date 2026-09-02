@@ -767,6 +767,11 @@ section { position: relative; }
 .form-success { display: none; text-align: center; padding: 2rem 0; }
 .form-success.is-visible { display: block; }
 .form-success svg { color: var(--gold-bright); margin-inline: auto; margin-bottom: 1rem; }
+.freebie-success { display: none; text-align: center; padding: 1.4rem 0 0.4rem; }
+.freebie-success.is-visible { display: block; }
+.freebie-success svg { margin-inline: auto; }
+.freebie-success-links { display: flex; flex-direction: column; gap: 0.7rem; }
+.freebie-success-links .btn { display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
 
 .contact-strip { display: flex; flex-wrap: wrap; gap: 1.6rem 2.6rem; margin-top: 2.2rem; }
 .contact-item { display: flex; align-items: center; gap: 0.7rem; }

@@ -659,7 +659,7 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
           </button>
           <h3 id="freebie-modal-title">Get your free resources</h3>
-          <p class="modal-sub">Tick whichever you'd like — sent straight to your inbox.</p>
+          <p class="modal-sub">Tick whichever you'd like — download them straight after, no email required.</p>
           <div class="lead-resource-picks">
             <label class="resource-pick"><input type="checkbox" name="resource" value="nda" id="pick-nda"> The KeepCounsel NDA</label>
             <label class="resource-pick"><input type="checkbox" name="resource" value="redflag" id="pick-redflag"> The Contract Red-Flag Checklist</label>
@@ -670,7 +670,6 @@
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_next" value="https://keepcounsel.io/index.html?sent=freebies#insights">
-            <input type="hidden" name="_autoresponse" value="Thanks for your interest in KeepCounsel — here are all three resources, so grab whichever you need:&#10;&#10;The KeepCounsel NDA: https://keepcounsel.io/downloads/keepcounsel-nda.docx&#10;The Contract Red-Flag Checklist: https://keepcounsel.io/downloads/keepcounsel-contract-red-flag-checklist.docx&#10;The Legal Health Check-list: https://keepcounsel.io/downloads/keepcounsel-legal-health-checklist.docx&#10;&#10;If anything you read raises a question, just reply to this email — Conail.">
             <input type="hidden" name="_replyto" id="lead-replyto">
             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
             <div class="field">
@@ -685,9 +684,19 @@
               <label for="lead-company">Company name</label>
               <input id="lead-company" name="company" type="text" placeholder="Your Company Ltd" required>
             </div>
-            <button type="submit" class="btn btn-gold btn-block">Send me these</button>
-            <p class="lead-form-foot">Delivered to your inbox within a minute or two. No spam.</p>
+            <button type="submit" class="btn btn-gold btn-block">Get my resources</button>
+            <p class="lead-form-foot">Instant download — nothing to wait for in your inbox.</p>
           </form>
+          <div class="freebie-success" id="freebie-success">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--gold);margin-bottom:0.8rem;"><path d="M9 12l2 2 4-4M12 3l8 4v5c0 5-3.4 8.6-8 9-4.6-.4-8-4-8-9V7l8-4Z"/></svg>
+            <p style="font-weight:700;color:var(--fg);">Got it — here's everything.</p>
+            <p style="color:var(--fg-muted);font-size:0.92rem;margin-bottom:1.2rem;">Click each one below to download.</p>
+            <div class="freebie-success-links">
+              <a href="downloads/keepcounsel-nda.docx" download class="btn btn-ghost btn-block"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 0 4 4m-4-4-4 4"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg> The KeepCounsel NDA</a>
+              <a href="downloads/keepcounsel-contract-red-flag-checklist.docx" download class="btn btn-ghost btn-block"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 0 4 4m-4-4-4 4"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg> The Contract Red-Flag Checklist</a>
+              <a href="downloads/keepcounsel-legal-health-checklist.docx" download class="btn btn-ghost btn-block"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 0 4 4m-4-4-4 4"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg> The Legal Health Check-list</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

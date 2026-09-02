@@ -306,8 +306,19 @@
   var freebieModal = document.getElementById('freebie-modal');
   if (freebieModal) {
     var lastFocused = null;
+    function resetFreebieModalView() {
+      var formEl = document.getElementById('lead-form');
+      var picksEl = document.querySelector('.lead-resource-picks');
+      var subEl = document.querySelector('.modal-sub');
+      var successEl = document.getElementById('freebie-success');
+      if (formEl) formEl.style.display = '';
+      if (picksEl) picksEl.style.display = '';
+      if (subEl) subEl.style.display = '';
+      if (successEl) successEl.classList.remove('is-visible');
+    }
     function openFreebieModal(checkboxId) {
       lastFocused = document.activeElement;
+      resetFreebieModalView();
       document.querySelectorAll('.resource-pick input').forEach(function (i) { i.checked = false; });
       if (checkboxId) {
         var cb = document.getElementById(checkboxId);
@@ -349,12 +360,20 @@
   }
   if (new URLSearchParams(window.location.search).get('sent') === 'freebies') {
     var freebieModalEl = document.getElementById('freebie-modal');
-    if (freebieModalEl) freebieModalEl.classList.remove('is-open');
+    var leadFormEl = document.getElementById('lead-form');
+    var picksEl = document.querySelector('.lead-resource-picks');
+    var subEl = document.querySelector('.modal-sub');
+    var successEl = document.getElementById('freebie-success');
+    if (leadFormEl) leadFormEl.style.display = 'none';
+    if (picksEl) picksEl.style.display = 'none';
+    if (subEl) subEl.style.display = 'none';
+    if (successEl) successEl.classList.add('is-visible');
+    if (freebieModalEl) {
+      freebieModalEl.classList.add('is-open');
+      freebieModalEl.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
     window.history.replaceState({}, document.title, window.location.pathname + '#insights');
-    window.addEventListener('load', function () {
-      var target = document.getElementById('insights');
-      if (target) target.scrollIntoView({ block: 'start' });
-    });
   }
 
   /* ---------- Back to top ---------- */
