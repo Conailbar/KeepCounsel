@@ -356,6 +356,13 @@
       var btn = leadForm.querySelector('button[type="submit"]');
       btn.textContent = 'Sending…';
       btn.disabled = true;
+      // Carry which resources were actually ticked through to the success
+      // page, so only those download links show — not all three regardless.
+      var checked = Array.prototype.slice.call(document.querySelectorAll('.resource-pick input:checked')).map(function (i) { return i.value; });
+      var nextField = document.getElementById('lead-next');
+      if (nextField && checked.length) {
+        nextField.value = 'https://keepcounsel.io/index.html?sent=freebies&items=' + encodeURIComponent(checked.join(',')) + '#insights';
+      }
     });
   }
   if (new URLSearchParams(window.location.search).get('sent') === 'freebies') {
@@ -364,6 +371,12 @@
     var picksEl = document.querySelector('.lead-resource-picks');
     var subEl = document.querySelector('.modal-sub');
     var successEl = document.getElementById('freebie-success');
+    var requestedItems = (new URLSearchParams(window.location.search).get('items') || '').split(',').filter(Boolean);
+    if (requestedItems.length) {
+      Array.prototype.slice.call(document.querySelectorAll('.freebie-success-links a')).forEach(function (a) {
+        if (requestedItems.indexOf(a.getAttribute('data-resource')) === -1) a.style.display = 'none';
+      });
+    }
     if (leadFormEl) leadFormEl.style.display = 'none';
     if (picksEl) picksEl.style.display = 'none';
     if (subEl) subEl.style.display = 'none';
