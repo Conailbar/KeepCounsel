@@ -4,6 +4,24 @@
 
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---------- Mirror visible email into hidden _replyto for FormSubmit ----------
+     FormSubmit needs a field literally named "_replyto" to set the email's
+     Reply-To header, but it excludes underscore-prefixed fields from the
+     visible table in the notification email. So the real email input keeps
+     a normal name (shows up in the table) and this copies its value into a
+     hidden _replyto field right before submit, so replying also works. */
+  function wireReplyToMirror(formId, emailFieldId, hiddenFieldId) {
+    var form = document.getElementById(formId);
+    var emailField = document.getElementById(emailFieldId);
+    var hiddenField = document.getElementById(hiddenFieldId);
+    if (!form || !emailField || !hiddenField) return;
+    form.addEventListener('submit', function () {
+      hiddenField.value = emailField.value;
+    });
+  }
+  wireReplyToMirror('ai-review-form', 'ai-review-email', 'ai-review-replyto');
+  wireReplyToMirror('lead-form', 'lead-email', 'lead-replyto');
+
   /* ---------- Hero load-in sequence (runs once, on load, not scroll-gated) ---------- */
   var loadEls = Array.prototype.slice.call(document.querySelectorAll('[data-load]'));
   if (loadEls.length) {
