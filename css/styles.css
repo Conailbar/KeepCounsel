@@ -1002,3 +1002,5 @@ section { position: relative; }
   .nav-cta { gap: 0.5rem; }
   .nav-cta .btn-sm { padding: 0.6rem 1rem; font-size: 0.82rem; }
 }
+
+.ai-review-foot { margin-top: 0.8rem; font-size: 0.78rem; color: var(--fg-faint); text-align: center; line-height: 1.45; }
