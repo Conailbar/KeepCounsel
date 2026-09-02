@@ -699,8 +699,8 @@ section { position: relative; }
 }
 .discount-callout p { margin: 0; }
 .discount-callout .badge-lg {
-  display: inline-block; vertical-align: middle; background: var(--gold); color: #fff; font-family: var(--font-display); font-weight: 600;
-  font-size: 1.1rem; padding: 0.4rem 0.9rem; border-radius: var(--radius-sm); white-space: nowrap; margin-right: 0.5rem;
+  display: inline-block; vertical-align: middle; background: var(--red); color: #fff; font-family: var(--font-display); font-weight: 600;
+  font-size: 1.1rem; padding: 0.4rem 0.9rem; border-radius: 999px; white-space: nowrap; margin-right: 0.5rem;
   line-height: 1.5;
 }
 .discount-callout p { margin: 0; font-size: 0.92rem; color: var(--fg); }

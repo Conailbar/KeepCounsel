@@ -166,16 +166,25 @@
   /* ---------- Pricing tabs ---------- */
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.pricing-tab'));
   var panels = Array.prototype.slice.call(document.querySelectorAll('.pricing-panel'));
+  var retainerUpsell = document.getElementById('retainer-upsell-banner');
+  function syncRetainerUpsell(activeTab) {
+    if (!retainerUpsell) return;
+    retainerUpsell.hidden = activeTab === 'panel-retainer';
+  }
   tabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
       tabs.forEach(function (t) { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
       panels.forEach(function (p) { p.classList.remove('is-active'); });
       tab.classList.add('is-active');
       tab.setAttribute('aria-selected', 'true');
-      var target = document.getElementById(tab.getAttribute('data-tab'));
+      var tabName = tab.getAttribute('data-tab');
+      var target = document.getElementById(tabName);
       if (target) target.classList.add('is-active');
+      syncRetainerUpsell(tabName);
     });
   });
+  var initialTab = tabs.filter(function (t) { return t.classList.contains('is-active'); })[0];
+  syncRetainerUpsell(initialTab ? initialTab.getAttribute('data-tab') : null);
 
   /* ---------- Jump-to-tab links (e.g. retainer callout) ---------- */
   var jumpLinks = Array.prototype.slice.call(document.querySelectorAll('[data-jump-tab]'));
