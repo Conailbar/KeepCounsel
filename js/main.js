@@ -300,6 +300,12 @@
     if (aiSuccess) aiSuccess.classList.add('is-visible');
     var cleanUrl = window.location.pathname + '#ai-review';
     window.history.replaceState({}, document.title, cleanUrl);
+    // Stripe can strip the URL fragment on redirect, so scroll explicitly
+    // rather than relying on the browser honouring #ai-review.
+    window.addEventListener('load', function () {
+      var aiTarget = document.getElementById('ai-review');
+      if (aiTarget) aiTarget.scrollIntoView({ block: 'start' });
+    });
   }
 
   /* ---------- Freebie modal ---------- */
