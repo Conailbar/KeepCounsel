@@ -321,6 +321,7 @@ section { position: relative; }
 .hero-stat .label { font-size: 0.82rem; color: rgba(250,247,241,0.62); margin-top: 0.2rem; }
 .hero-panel-quote { margin-top: 1.8rem; padding-top: 1.6rem; border-top: 1px solid rgba(250,247,241,0.14); font-family: var(--font-display); font-size: 1.05rem; font-style: italic; line-height: 1.5; }
 .hero-panel-quote cite { display: block; margin-top: 0.9rem; font-family: var(--font-body); font-style: normal; font-size: 0.8rem; color: rgba(250,247,241,0.62); }
+.hero-panel-quote cite a { color: var(--gold-bright); text-decoration: underline; text-underline-offset: 2px; }
 
 /* ---- Logo / trust strip ---------------------------------------------- */
 .retainer-callout { background: var(--ink); }
@@ -587,6 +588,14 @@ section { position: relative; }
   .cm-item { flex: 1 1 auto; min-width: 0; }
   .cm-list-win li svg { flex-shrink: 0; color: var(--gold); margin-top: 0.2rem; }
   .cm-list-win strong { color: var(--gold); }
+}
+.about-layout { display: grid; grid-template-columns: 260px 1fr; gap: 2.6rem; align-items: start; max-width: 52rem; }
+.about-layout:not(:has(.about-photo)) { grid-template-columns: 1fr; max-width: 44rem; }
+.about-photo { margin: 0; }
+.about-photo img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; object-position: center top; border-radius: var(--radius-lg); border: 1px solid var(--border); display: block; }
+@media (max-width: 720px) {
+  .about-layout { grid-template-columns: 1fr; gap: 1.6rem; }
+  .about-photo img { max-width: 200px; }
 }
 .about-copy p { color: var(--fg-muted); margin-bottom: 1.1rem; }
 .about-copy p:first-of-type { font-size: var(--fs-lead); color: var(--fg); }
