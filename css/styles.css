@@ -525,7 +525,7 @@ section { position: relative; }
 .credential-card span { color: var(--fg-muted); font-size: 0.9rem; }
 
 /* ---- Traditional firm vs KeepCounsel comparison ------------------------ */
-.compare-scroll { overflow-x: auto; margin-top: 2.4rem; -webkit-overflow-scrolling: touch; border: 1px solid var(--border); border-radius: var(--radius-md); }
+.compare-scroll { overflow-x: auto; overflow-y: hidden; margin-top: 2.4rem; -webkit-overflow-scrolling: touch; border: 1px solid var(--border); border-radius: var(--radius-md); }
 .compare-table { min-width: 488px; }
 .compare-row { display: grid; grid-template-columns: minmax(108px, 1.1fr) minmax(190px, 1fr) minmax(190px, 1fr); }
 .compare-row + .compare-row { border-top: 1px solid var(--border); }
