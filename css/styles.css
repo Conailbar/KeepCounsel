@@ -690,6 +690,7 @@ section { position: relative; }
 .redline-demo .rd-label { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-bright); font-weight: 700; margin-bottom: 0.9rem; display: block; }
 .redline-demo .rd-clause { font-family: 'Fraunces', serif; font-size: 0.98rem; line-height: 1.7; color: var(--paper); }
 .redline-demo .rd-old { color: #e8a3a3; text-decoration: line-through; opacity: 0.8; }
+.redline-demo .rd-caption { margin-top: 0.7rem; font-size: 0.78rem; color: rgba(250,247,241,0.6); }
 .redline-demo .rd-new { color: var(--gold-bright); text-decoration: underline; text-underline-offset: 3px; }
 .redline-demo .rd-annotation { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(250,247,241,0.14); font-size: 0.84rem; color: rgba(250,247,241,0.72); display: flex; gap: 0.6rem; align-items: flex-start; }
 .redline-demo .rd-annotation svg { color: var(--gold-bright); flex-shrink: 0; margin-top: 0.15rem; }
