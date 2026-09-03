@@ -22,6 +22,18 @@
   wireReplyToMirror('ai-review-form', 'ai-review-email', 'ai-review-replyto');
   wireReplyToMirror('lead-form', 'lead-email', 'lead-replyto');
 
+  /* ---------- Record the moment Terms of Business were accepted ----------
+     Stamped when the box is actually ticked, not at submit, so the record
+     reflects the act of acceptance. FormSubmit adds its own server-side
+     received time on the email, which is the more reliable of the two. */
+  var tobBox = document.querySelector('.tob-consent input[type="checkbox"]');
+  var tobStamp = document.getElementById('ai-review-accepted-at');
+  if (tobBox && tobStamp) {
+    tobBox.addEventListener('change', function () {
+      tobStamp.value = tobBox.checked ? new Date().toISOString() + ' (browser time)' : '';
+    });
+  }
+
   /* ---------- Hero load-in sequence (runs once, on load, not scroll-gated) ---------- */
   var loadEls = Array.prototype.slice.call(document.querySelectorAll('[data-load]'));
   if (loadEls.length) {
