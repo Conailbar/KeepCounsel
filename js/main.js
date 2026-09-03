@@ -415,38 +415,6 @@
     });
   }
 
-  /* ---------- How it works: scroll-linked progress rail ----------
-     Tied to scroll position rather than a one-shot reveal, so the line
-     fills as you scroll past it and can never have finished before you
-     look at it. Enhancement only: without JS (or with reduced motion)
-     the rail is drawn and every step is fully visible. */
-  var howto = document.querySelector('.howto');
-  if (howto && !prefersReduced) {
-    var howtoSteps = Array.prototype.slice.call(howto.querySelectorAll('.howto-steps li'));
-    var lightAt = [0.04, 0.30, 0.56, 0.82];
-    howto.classList.add('howto--scroll');
-    var howtoTicking = false;
-    function syncHowto() {
-      howtoTicking = false;
-      var vh = window.innerHeight || document.documentElement.clientHeight;
-      var top = howto.getBoundingClientRect().top;
-      /* Starts when the block reaches 88% of the viewport, completes after
-         it has travelled a further 42% — a comfortable half-screen of scroll. */
-      var p = (vh * 0.88 - top) / (vh * 0.42);
-      p = p < 0 ? 0 : (p > 1 ? 1 : p);
-      howto.style.setProperty('--p', p);
-      howtoSteps.forEach(function (li, i) { li.classList.toggle('is-lit', p >= lightAt[i]); });
-    }
-    function queueHowto() {
-      if (howtoTicking) return;
-      howtoTicking = true;
-      requestAnimationFrame(syncHowto);
-    }
-    document.addEventListener('scroll', queueHowto, { passive: true });
-    window.addEventListener('resize', queueHowto);
-    syncHowto();
-  }
-
   /* ---------- Footer year ---------- */
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();
