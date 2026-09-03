@@ -1026,3 +1026,10 @@ section { position: relative; }
 .case-stat span { display: block; font-size: 0.79rem; color: var(--fg-faint); margin-top: 0.25rem; }
 .case-note { margin-top: 1.6rem; font-size: 0.78rem; color: var(--fg-faint); text-align: center; }
 @media (max-width: 820px) { .case-steps { grid-template-columns: 1fr; gap: 1.3rem; } }
+
+/* ---- Service tags (compact capability list) ---------------------------- */
+.service-tags { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem 2rem; }
+.service-tags li { position: relative; padding-left: 1.1rem; font-size: 0.92rem; color: var(--fg); }
+.service-tags li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+@media (max-width: 820px) { .service-tags { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .service-tags { grid-template-columns: 1fr; } }
