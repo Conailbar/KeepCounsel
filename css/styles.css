@@ -384,17 +384,17 @@ section { position: relative; }
 }
 
 /* Desktop rail */
-.process-track { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); margin-bottom: 1.6rem; }
+.process-track { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6rem; margin-bottom: 1.6rem; }
 .process-track::before {
-  content: ''; position: absolute; top: 26px; left: 12.5%; right: 12.5%; height: 2px;
+  content: ''; position: absolute; top: 26px; left: calc(12.5% - 0.6rem); right: calc(12.5% - 0.6rem); height: 2px;
   background: var(--border); z-index: 0;
 }
 .process-track::after {
-  content: ''; position: absolute; top: 26px; left: 12.5%; height: 2px; width: 0;
+  content: ''; position: absolute; top: 26px; left: calc(12.5% - 0.6rem); height: 2px; width: 0;
   background: var(--gold); z-index: 1;
   transition: width 1.4s var(--ease-out) 200ms;
 }
-.process-track.is-visible::after { width: 75%; }
+.process-track.is-visible::after { width: calc(75% + 1.2rem); }
 .process-node { display: flex; justify-content: center; position: relative; z-index: 2; }
 .process-icon {
   width: 52px; height: 52px; border-radius: 50%;
