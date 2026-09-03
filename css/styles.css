@@ -324,11 +324,6 @@ section { position: relative; }
 .hero-panel-quote cite a { color: var(--gold-bright); text-decoration: underline; text-underline-offset: 2px; }
 
 /* ---- Logo / trust strip ---------------------------------------------- */
-.discount-flag {
-  display: inline-block; color: #fff; background: var(--red); font-weight: 700;
-  padding: 0.1rem 0.5rem; border-radius: 999px; white-space: nowrap;
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.12) inset;
-}
 
 .trust-strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
 .trust-strip .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.7rem; padding-block: 1.7rem; }
@@ -1031,7 +1026,6 @@ section { position: relative; }
 .tob-consent { display: flex; gap: 0.6rem; align-items: flex-start; margin-top: 1.2rem; font-size: 0.83rem; color: var(--fg-muted); line-height: 1.45; cursor: pointer; }
 .tob-consent input { margin-top: 0.15rem; flex-shrink: 0; accent-color: var(--gold); width: 16px; height: 16px; }
 .tob-consent a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
-@media (max-width: 600px) { .pre-header .discount-flag { white-space: normal; display: inline; } }
 
 /* ---------- Pre-payment order confirmation page ---------- */
 .order-terms { list-style: none !important; padding-left: 0 !important; }
