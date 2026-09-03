@@ -376,58 +376,53 @@ section { position: relative; }
 .sector-pill.sector-more:hover { background: var(--gold); border-color: var(--gold); }
 .sector-pill.sector-more svg { color: var(--gold-bright); }
 
-/* ---- How it works: editorial column rules, no icons ------------------- */
+/* ---- How it works: scroll-linked progress rail ------------------------ */
 .howto { margin-top: 0.4rem; }
 .howto-eyebrow {
   display: block; text-align: center; font-size: 0.7rem; font-weight: 700;
   letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-muted);
   margin-bottom: 1.2rem;
 }
-.howto-rule { position: relative; height: 2px; border-radius: 2px; background: var(--border); overflow: hidden; }
-.howto-rule span {
-  position: absolute; top: 0; bottom: 0; left: 0; width: 0; background: var(--gold);
-  transition: width 1.8s var(--ease-out) 120ms;
-}
-.howto.is-visible .howto-rule span { width: 100%; }
+.howto-rule { position: relative; height: 3px; border-radius: 3px; background: var(--border); overflow: hidden; }
+.howto-rule span { position: absolute; top: 0; bottom: 0; left: 0; width: 100%; background: var(--gold); }
 
 .howto-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
-.howto-steps li {
-  position: relative; padding: 1.7rem 1.8rem 0; border-left: 1px solid var(--border);
-  opacity: 0; transform: translateY(20px);
-  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
-}
+.howto-steps li { position: relative; padding: 1.9rem 1.8rem 0; border-left: 1px solid var(--border); }
 .howto-steps li:first-child { border-left: 0; padding-left: 0; }
-/* Marker sitting on the rule, lighting as the gold line reaches it */
 .howto-steps li::before {
-  content: ''; position: absolute; top: -6px; left: 1.8rem;
-  width: 10px; height: 10px; border-radius: 50%;
-  background: var(--gold); border: 2px solid var(--paper);
-  transform: scale(0); transition: transform 0.45s var(--ease-out);
+  content: ''; position: absolute; top: -9px; left: 1.8rem;
+  width: 15px; height: 15px; border-radius: 50%;
+  background: var(--gold); border: 3px solid var(--paper); box-sizing: border-box;
 }
 .howto-steps li:first-child::before { left: 0; }
-.howto.is-visible .howto-steps li { opacity: 1; transform: none; }
-.howto.is-visible .howto-steps li::before { transform: scale(1); }
-.howto.is-visible .howto-steps li:nth-child(1),
-.howto.is-visible .howto-steps li:nth-child(1)::before { transition-delay: 220ms; }
-.howto.is-visible .howto-steps li:nth-child(2),
-.howto.is-visible .howto-steps li:nth-child(2)::before { transition-delay: 580ms; }
-.howto.is-visible .howto-steps li:nth-child(3),
-.howto.is-visible .howto-steps li:nth-child(3)::before { transition-delay: 940ms; }
-.howto.is-visible .howto-steps li:nth-child(4),
-.howto.is-visible .howto-steps li:nth-child(4)::before { transition-delay: 1300ms; }
 
 .howto-num {
-  display: block; font-family: var(--font-display); font-size: 2rem; line-height: 1;
-  color: var(--gold); opacity: 0.4; margin-bottom: 0.75rem; letter-spacing: -0.02em;
+  display: block; font-family: var(--font-display); font-size: 2.1rem; line-height: 1;
+  color: var(--gold); margin-bottom: 0.75rem; letter-spacing: -0.02em;
 }
 .howto-steps h4 { font-size: 1rem; margin: 0 0 0.3rem; line-height: 1.3; }
 .howto-steps p { font-size: 0.88rem; line-height: 1.5; color: var(--fg-muted); margin: 0; }
+
+/* Animated state — only once JS has taken over (see main.js) */
+.howto--scroll .howto-rule span { width: calc(var(--p, 0) * 100%); }
+.howto--scroll .howto-steps li {
+  opacity: 0.2; transform: translateY(18px);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+}
+.howto--scroll .howto-steps li::before {
+  transform: scale(0);
+  transition: transform 0.45s cubic-bezier(0.34, 1.7, 0.5, 1);
+}
+.howto--scroll .howto-steps li.is-lit { opacity: 1; transform: none; }
+.howto--scroll .howto-steps li.is-lit::before { transform: scale(1); }
+.howto--scroll .howto-num { transition: color 0.5s var(--ease-out); color: var(--fg-faint); }
+.howto--scroll .howto-steps li.is-lit .howto-num { color: var(--gold); }
 
 @media (max-width: 880px) {
   .howto-steps { grid-template-columns: repeat(2, 1fr); }
   .howto-steps li:nth-child(3) { border-left: 0; padding-left: 0; }
   .howto-steps li:nth-child(3)::before { left: 0; }
-  .howto-steps li:nth-child(n+3) { margin-top: 1.8rem; }
+  .howto-steps li:nth-child(n+3) { margin-top: 1.9rem; }
   .howto-steps li:nth-child(n+3)::before { display: none; }
 }
 @media (max-width: 620px) {
@@ -441,11 +436,7 @@ section { position: relative; }
   .howto-steps li:first-child { border-top: 0; padding-top: 1.5rem; margin-top: 0; }
   .howto-steps li:nth-child(3) { padding-left: 0; }
   .howto-steps li:nth-child(n+3) { margin-top: 1.3rem; }
-  .howto-num { grid-row: 1 / span 2; font-size: 1.5rem; margin: 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .howto-rule span, .howto-steps li, .howto-steps li::before { transition: none; }
+  .howto-num { grid-row: 1 / span 2; font-size: 1.6rem; margin: 0; }
 }
 
 /* ---- Pricing --------------------------------------------------------- */
