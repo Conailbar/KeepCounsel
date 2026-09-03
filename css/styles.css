@@ -1032,3 +1032,16 @@ section { position: relative; }
 .tob-consent input { margin-top: 0.15rem; flex-shrink: 0; accent-color: var(--gold); width: 16px; height: 16px; }
 .tob-consent a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
 @media (max-width: 600px) { .pre-header .discount-flag { white-space: normal; display: inline; } }
+
+/* ---------- Pre-payment order confirmation page ---------- */
+.order-terms { list-style: none !important; padding-left: 0 !important; }
+.order-terms li { position: relative; padding-left: 1.5rem; }
+.order-terms li::before {
+  content: ""; position: absolute; left: 0; top: 0.55em;
+  width: 7px; height: 7px; border-radius: 50%; background: var(--gold);
+}
+.order-terms strong { color: var(--ink); }
+.order-caveat { font-size: 0.86rem !important; margin-top: 1rem; }
+.order-pay { margin-top: 0.6rem; padding: 1.8rem; border-radius: var(--radius-md, 14px); background: var(--bg-alt); border: 1px solid var(--ink-10); }
+.order-pay h2 { margin-top: 0; }
+.btn-pay { padding: 1rem 2.2rem; font-size: 1.02rem; }
