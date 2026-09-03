@@ -376,83 +376,60 @@ section { position: relative; }
 .sector-pill.sector-more:hover { background: var(--gold); border-color: var(--gold); }
 .sector-pill.sector-more svg { color: var(--gold-bright); }
 
-/* ---- Process flow: connected timeline + numbered steps ---------------- */
-.process-flow { margin-top: 3.4rem; }
-.process-heading {
-  font-family: var(--font-display); font-size: 1.45rem; text-align: center;
-  margin: 0 0 2rem; letter-spacing: -0.01em;
+/* ---- How it works: editorial column rules, no icons ------------------- */
+.howto { margin-top: 3.6rem; }
+.howto-eyebrow {
+  display: block; text-align: center; font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-muted);
+  margin-bottom: 1.1rem;
 }
+.howto-rule { position: relative; height: 1px; background: var(--border); overflow: hidden; }
+.howto-rule span {
+  position: absolute; top: 0; bottom: 0; left: 0; width: 0; background: var(--gold);
+  transition: width 1.5s var(--ease-out) 150ms;
+}
+.howto.is-visible .howto-rule span { width: 100%; }
 
-/* Desktop rail */
-.process-track { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6rem; margin-bottom: 1.6rem; }
-.process-track::before {
-  content: ''; position: absolute; top: 26px; left: calc(12.5% - 0.6rem); right: calc(12.5% - 0.6rem); height: 2px;
-  background: var(--border); z-index: 0;
+.howto-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
+.howto-steps li {
+  padding: 1.7rem 1.8rem 0; border-left: 1px solid var(--border);
+  opacity: 0; transform: translateY(10px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
 }
-.process-track::after {
-  content: ''; position: absolute; top: 26px; left: calc(12.5% - 0.6rem); height: 2px; width: 0;
-  background: var(--gold); z-index: 1;
-  transition: width 1.4s var(--ease-out) 200ms;
-}
-.process-track.is-visible::after { width: calc(75% + 1.2rem); }
-.process-node { display: flex; justify-content: center; position: relative; z-index: 2; }
-.process-icon {
-  width: 52px; height: 52px; border-radius: 50%;
-  background: var(--surface); border: 2px solid var(--border); color: var(--fg-faint);
-  display: flex; align-items: center; justify-content: center;
-  transform: scale(0.82);
-  transition: border-color 0.55s var(--ease-out), color 0.55s var(--ease-out),
-              transform 0.55s var(--ease-out), box-shadow 0.55s var(--ease-out);
-}
-.process-track.is-visible .process-node:nth-child(1) .process-icon { transition-delay: 200ms; }
-.process-track.is-visible .process-node:nth-child(2) .process-icon { transition-delay: 560ms; }
-.process-track.is-visible .process-node:nth-child(3) .process-icon { transition-delay: 920ms; }
-.process-track.is-visible .process-node:nth-child(4) .process-icon { transition-delay: 1280ms; }
-.process-track.is-visible .process-icon {
-  border-color: var(--gold); color: var(--gold); transform: scale(1);
-  box-shadow: 0 0 0 6px var(--gold-10, rgba(169,130,47,0.10));
-}
+.howto-steps li:first-child { border-left: 0; padding-left: 0; }
+.howto.is-visible .howto-steps li { opacity: 1; transform: none; }
+.howto.is-visible .howto-steps li:nth-child(1) { transition-delay: 260ms; }
+.howto.is-visible .howto-steps li:nth-child(2) { transition-delay: 460ms; }
+.howto.is-visible .howto-steps li:nth-child(3) { transition-delay: 660ms; }
+.howto.is-visible .howto-steps li:nth-child(4) { transition-delay: 860ms; }
 
-/* Steps */
-.process-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6rem; counter-reset: step; }
-.process-step { position: relative; text-align: center; }
-.process-step::before {
-  counter-increment: step;
-  content: counter(step, decimal-leading-zero);
-  display: block;
-  font-family: var(--font-display); font-size: 0.92rem; font-weight: 600;
-  color: var(--gold); letter-spacing: 0.06em;
+.howto-num {
+  display: block; font-family: var(--font-display); font-size: 2rem; line-height: 1;
+  color: var(--gold); opacity: 0.5; margin-bottom: 0.75rem; letter-spacing: -0.02em;
 }
-.process-step h4 { font-size: 1rem; margin: 0.4rem 0 0.45rem; line-height: 1.3; }
-.process-step p { color: var(--fg-muted); font-size: 0.88rem; line-height: 1.55; margin: 0; }
+.howto-steps h4 { font-size: 1rem; margin: 0 0 0.3rem; line-height: 1.3; }
+.howto-steps p { font-size: 0.88rem; line-height: 1.5; color: var(--fg-muted); margin: 0; }
 
-/* Tablet: two columns, rail hidden (it can't span a wrapped grid honestly) */
-@media (max-width: 860px) {
-  .process-track { display: none; }
-  .process-list { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.6rem; }
+@media (max-width: 880px) {
+  .howto-steps { grid-template-columns: repeat(2, 1fr); }
+  .howto-steps li:nth-child(3) { border-left: 0; padding-left: 0; }
+  .howto-steps li:nth-child(n+3) { margin-top: 1.6rem; }
 }
-
-/* Mobile: single column with a vertical rail down the left */
-@media (max-width: 560px) {
-  .process-list { grid-template-columns: 1fr; gap: 0; position: relative; padding-left: 2.6rem; }
-  .process-list::before {
-    content: ''; position: absolute; left: 0.72rem; top: 0.5rem; bottom: 0.5rem; width: 2px;
-    background: var(--border);
+@media (max-width: 620px) {
+  .howto-steps { grid-template-columns: 1fr; }
+  .howto-steps li {
+    display: grid; grid-template-columns: auto 1fr; column-gap: 1.1rem;
+    border-left: 0; border-top: 1px solid var(--border);
+    padding: 1.3rem 0 0; margin-top: 1.3rem;
   }
-  .process-step { text-align: left; padding-bottom: 1.8rem; }
-  .process-step:last-child { padding-bottom: 0; }
-  .process-step::before {
-    position: absolute; left: -2.6rem; top: -0.1rem;
-    width: 1.55rem; height: 1.55rem; border-radius: 50%;
-    background: var(--surface); border: 2px solid var(--gold); color: var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.68rem; letter-spacing: 0;
-  }
+  .howto-steps li:first-child { border-top: 0; padding-top: 1.5rem; margin-top: 0; }
+  .howto-steps li:nth-child(3) { padding-left: 0; }
+  .howto-steps li:nth-child(n+3) { margin-top: 1.3rem; }
+  .howto-num { grid-row: 1 / span 2; font-size: 1.5rem; margin: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .process-track::after { transition: none; }
-  .process-icon { transition: none; }
+  .howto-rule span, .howto-steps li { transition: none; }
 }
 
 /* ---- Pricing --------------------------------------------------------- */
@@ -982,7 +959,6 @@ section { position: relative; }
   .hero-grid { grid-template-columns: 1fr; }
   .hero-panel { max-width: 32rem; }
   .services-grid, .freebie-grid { grid-template-columns: repeat(2, 1fr); }
-  .process-list { grid-template-columns: repeat(2, 1fr); }
   .retainer-grid { grid-template-columns: 1fr; max-width: 26rem; margin-inline: auto; }
   .fee-grid { grid-template-columns: 1fr; }
   .credential-grid { grid-template-columns: 1fr; }
@@ -998,7 +974,7 @@ section { position: relative; }
 @media (max-width: 720px) {
   .nav-links-desktop, .nav-cta .btn-ghost { display: none; }
   .nav-toggle { display: flex; }
-  .services-grid, .process-list, .insight-grid, .tier-grid, .freebie-grid { grid-template-columns: 1fr; }
+  .services-grid, .insight-grid, .tier-grid, .freebie-grid { grid-template-columns: 1fr; }
   .trust-strip .wrap { justify-content: flex-start; gap: 0.6rem; }
   .footer-top { grid-template-columns: 1fr; gap: 2rem; }
   .hero-stat-grid { gap: 1.2rem; }
