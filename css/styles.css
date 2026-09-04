@@ -389,7 +389,7 @@ section { position: relative; }
 .rate-compare { max-width: 34rem; margin: 1.6rem auto 0; text-align: center; font-size: 0.92rem; color: var(--fg-muted); background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 0.9rem 1.4rem; }
 .rate-compare strong { color: var(--fg); }
 .pricing-tab.is-active { background: var(--ink); color: var(--paper); }
-.pricing-panels { position: relative; }
+.pricing-panels { position: relative; display: flow-root; }
 .pricing-panel { display: none; }
 .pricing-panel.is-active { display: block; animation: fadeUp var(--dur-med) var(--ease-out); }
 
@@ -463,7 +463,8 @@ section { position: relative; }
 .bespoke-list { display: flex; flex-direction: column; gap: 0.9rem; }
 .bespoke-list li { display: flex; align-items: center; gap: 0.7rem; font-weight: 600; font-size: 0.94rem; }
 .bespoke-list svg { color: var(--gold-bright); flex-shrink: 0; }
-.pricing-note { text-align: center; color: var(--fg-faint); font-size: 0.85rem; margin-top: 2rem; }
+.pricing-note { text-align: center; color: var(--fg-faint); font-size: 0.85rem; line-height: 1.6; margin: 2rem auto 0; max-width: 60rem; }
+.pricing-panels + .pricing-note { margin-top: 2.8rem; }
 
 /* ---- About / why (no portrait — credential card grid) ------------------ */
 .credential-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
