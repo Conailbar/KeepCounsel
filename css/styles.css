@@ -1041,3 +1041,5 @@ section { position: relative; }
   text-align: center; max-width: 46rem; margin: 1.8rem auto 0;
   font-size: 0.88rem; line-height: 1.6; color: var(--fg-muted);
 }
+
+.fit-note { max-width: 58rem; margin: 1.8rem auto 0; text-align: center; font-size: 0.9rem; line-height: 1.65; color: var(--fg-muted); }
