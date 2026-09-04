@@ -985,3 +985,10 @@ section { position: relative; }
 .order-pay { margin-top: 0.6rem; padding: 1.8rem; border-radius: var(--radius-md, 14px); background: var(--bg-alt); border: 1px solid var(--ink-10); }
 .order-pay h2 { margin-top: 0; }
 .btn-pay { padding: 1rem 2.2rem; font-size: 1.02rem; }
+
+.fee-eta {
+  display: inline-flex; align-items: center; gap: 0.4rem; align-self: flex-start;
+  margin-top: auto; padding-top: 0.2rem;
+  font-size: 0.79rem; font-weight: 600; letter-spacing: 0.01em; color: var(--gold);
+}
+.fee-eta svg { flex-shrink: 0; opacity: 0.85; }
