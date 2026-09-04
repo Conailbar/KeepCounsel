@@ -857,6 +857,7 @@ section { position: relative; }
 .pre-header {
   position: sticky; top: 0; z-index: 101;
   background: var(--ink); color: var(--paper); text-align: center; padding: 0.55rem 1rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em;
+  border-bottom: 2px solid var(--gold);
 }
 .pre-header a { text-decoration: underline; text-underline-offset: 2px; color: var(--gold-bright); }
 
@@ -1035,3 +1036,8 @@ section { position: relative; }
 .fit-col li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
 .fit-no li::before { background: var(--ink-20); }
 @media (max-width: 720px) { .fit-grid { grid-template-columns: 1fr; } }
+
+.ai-review-bridge {
+  text-align: center; max-width: 46rem; margin: 1.8rem auto 0;
+  font-size: 0.88rem; line-height: 1.6; color: var(--fg-muted);
+}
