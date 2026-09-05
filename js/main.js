@@ -428,8 +428,12 @@
     head.addEventListener('click', function () {
       var opening = !card.classList.contains('is-open');
       if (opening) {
-        body.style.maxHeight = body.scrollHeight + 'px';
+        /* Open styles add padding and a rule, so apply the class first and
+           measure after, or the target height is short by that amount. */
+        body.style.maxHeight = body.getBoundingClientRect().height + 'px';
         card.classList.add('is-open');
+        void body.offsetHeight;
+        body.style.maxHeight = body.scrollHeight + 'px';
         if (!prefersReduced) {
           body.addEventListener('transitionend', function done(e) {
             if (e.propertyName !== 'max-height') return;
