@@ -1041,7 +1041,7 @@ section { position: relative; }
 @media (max-width: 520px) { .service-tags { grid-auto-flow: row; grid-template-rows: auto; grid-template-columns: 1fr; } }
 
 /* ---- Terms acceptance checkbox ----------------------------------------- */
-.tob-consent { display: flex; gap: 0.6rem; align-items: flex-start; margin-top: 1.2rem; font-size: 0.83rem; color: var(--fg-muted); line-height: 1.45; cursor: pointer; }
+.tob-consent { display: flex; gap: 0.6rem; align-items: flex-start; margin-top: 0.85rem; font-size: 0.83rem; color: var(--fg-muted); line-height: 1.45; cursor: pointer; }
 .tob-consent input { margin-top: 0.15rem; flex-shrink: 0; accent-color: var(--gold); width: 16px; height: 16px; }
 .tob-consent a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
 

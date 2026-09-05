@@ -26,7 +26,7 @@
      Stamped when the box is actually ticked, not at submit, so the record
      reflects the act of acceptance. FormSubmit adds its own server-side
      received time on the email, which is the more reliable of the two. */
-  var tobBox = document.querySelector('.tob-consent input[type="checkbox"]');
+  var tobBox = document.querySelector('input[name="Terms accepted"]');
   var tobStamp = document.getElementById('ai-review-accepted-at');
   if (tobBox && tobStamp) {
     tobBox.addEventListener('change', function () {
