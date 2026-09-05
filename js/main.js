@@ -425,6 +425,11 @@
     var body = card.querySelector('.case-body');
     if (!head || !body) return;
     var closedMax = getComputedStyle(body).maxHeight;
+    /* The whole card is the target — the marker alone is a long way to travel. */
+    card.addEventListener('click', function (e) {
+      if (e.target.closest('a, button')) return;
+      head.click();
+    });
     head.addEventListener('click', function () {
       var opening = !card.classList.contains('is-open');
       if (opening) {
