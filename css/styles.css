@@ -1008,7 +1008,7 @@ section { position: relative; }
   opacity: 1; transition: opacity var(--dur-med) var(--ease-out);
 }
 .case-card.is-open .case-body::after { opacity: 0; }
-.case-body-inner { padding-top: 0; margin-top: 0.9rem; border-top: 0 solid var(--border); transition: padding-top var(--dur-med) var(--ease-out), margin-top var(--dur-med) var(--ease-out); }
+.case-body-inner { padding-top: 0; margin-top: 0.9rem; border-top: 0 solid var(--border); }
 .case-card.is-open .case-body-inner { padding-top: 1.3rem; margin-top: 1.1rem; border-top-width: 1px; }
 
 .case-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
@@ -1090,3 +1090,30 @@ section { position: relative; }
 .case-card.is-open .case-expand svg { transform: rotate(180deg); }
 .case-card.is-open:hover .case-expand svg { transform: rotate(180deg) translateY(2px); }
 @media (max-width: 900px) { .case-head { grid-template-columns: 1fr; } }
+
+/* ======================================================================
+   Mobile pass — fit, reach, legibility
+   ====================================================================== */
+@media (max-width: 560px) {
+  /* The tab row measured 391px in a 375px viewport, which scrolled the
+     whole page sideways. Icons go, labels share the width evenly. */
+  .pricing-tabs { display: flex; width: 100%; gap: 0.25rem; padding: 0.3rem; }
+  .pricing-tab { flex: 1 1 0; min-width: 0; justify-content: center; padding: 0.75rem 0.4rem; font-size: 0.8rem; }
+  .pricing-tab svg { display: none; }
+
+  /* Stats were stacking one per row; two up reads better and is shorter */
+  .case-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.85rem 1rem; }
+  .case-stat strong { font-size: 1.2rem; }
+  .case-stat span { font-size: 0.73rem; line-height: 1.35; }
+  .case-card { padding: 1.4rem 1.3rem; }
+  .case-head { gap: 0.9rem; }
+  .case-head h3 { font-size: 1.02rem; }
+
+  /* Reach: 17px link rows and a 39px control are too small to hit */
+  .case-expand { padding: 0.9rem 0; }
+  .footer-col a { display: inline-block; padding-block: 0.3rem; }
+  .footer-social a { min-width: 44px; min-height: 44px; }
+
+  .cm-badge { font-size: 0.74rem; }
+  .hero-stat .num { font-size: 1.65rem; }
+}
