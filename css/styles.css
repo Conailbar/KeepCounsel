@@ -1043,3 +1043,10 @@ section { position: relative; }
 }
 
 .fit-note { max-width: 58rem; margin: 1.8rem auto 0; text-align: center; font-size: 0.9rem; line-height: 1.65; color: var(--fg-muted); }
+
+/* ---- Case studies: collapse all but the first two --------------------- */
+.case-more { display: none; margin-top: 1.8rem; text-align: center; }
+.js-cases .case-more { display: block; }
+.js-cases .case-grid.is-collapsed .case-extra { display: none; }
+.case-more svg { transition: transform var(--dur-fast) var(--ease-out); }
+.case-more button[aria-expanded="true"] svg { transform: rotate(180deg); }

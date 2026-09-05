@@ -415,6 +415,26 @@
     });
   }
 
+  /* ---------- Case studies: show two, reveal the rest on request ----------
+     Enhancement only: the class is added by script, so without JS every
+     case study is visible and the button never appears. */
+  var caseGrid = document.getElementById('case-grid');
+  var caseToggle = document.getElementById('case-toggle');
+  if (caseGrid && caseToggle) {
+    document.documentElement.classList.add('js-cases');
+    caseGrid.classList.add('is-collapsed');
+    caseToggle.addEventListener('click', function () {
+      var collapsed = caseGrid.classList.toggle('is-collapsed');
+      caseToggle.setAttribute('aria-expanded', String(!collapsed));
+      caseToggle.childNodes[0].nodeValue = collapsed ? 'Show the other three ' : 'Show fewer ';
+      if (!collapsed) {
+        /* These never intersected while hidden, so the reveal observer
+           never fired for them — mark them visible directly. */
+        caseGrid.querySelectorAll('.case-extra').forEach(function (el) { el.classList.add('is-visible'); });
+      }
+    });
+  }
+
   /* ---------- Footer year ---------- */
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();
