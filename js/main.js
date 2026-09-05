@@ -421,7 +421,7 @@
      finishes so the card can reflow (window resize, font swap). */
   var caseCards = Array.prototype.slice.call(document.querySelectorAll('.case-card'));
   caseCards.forEach(function (card) {
-    var head = card.querySelector('.case-head');
+    var head = card.querySelector('.case-expand');
     var body = card.querySelector('.case-body');
     if (!head || !body) return;
     var closedMax = getComputedStyle(body).maxHeight;
@@ -456,6 +456,7 @@
         card.classList.remove('is-open');
       }
       head.setAttribute('aria-expanded', String(opening));
+      head.querySelector('span').textContent = opening ? 'Show less' : 'Read in full';
     });
   });
 
