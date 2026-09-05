@@ -415,25 +415,40 @@
     });
   }
 
-  /* ---------- Case studies: show two, reveal the rest on request ----------
-     Enhancement only: the class is added by script, so without JS every
-     case study is visible and the button never appears. */
-  var caseGrid = document.getElementById('case-grid');
-  var caseToggle = document.getElementById('case-toggle');
-  if (caseGrid && caseToggle) {
-    document.documentElement.classList.add('js-cases');
-    caseGrid.classList.add('is-collapsed');
-    caseToggle.addEventListener('click', function () {
-      var collapsed = caseGrid.classList.toggle('is-collapsed');
-      caseToggle.setAttribute('aria-expanded', String(!collapsed));
-      caseToggle.childNodes[0].nodeValue = collapsed ? 'Show the other three ' : 'Show fewer ';
-      if (!collapsed) {
-        /* These never intersected while hidden, so the reveal observer
-           never fired for them — mark them visible directly. */
-        caseGrid.querySelectorAll('.case-extra').forEach(function (el) { el.classList.add('is-visible'); });
+  /* ---------- Case studies: faded preview, expand one at a time ----------
+     max-height is set to the measured height on open so the transition is
+     exact rather than racing to an arbitrary ceiling, then cleared once it
+     finishes so the card can reflow (window resize, font swap). */
+  var caseCards = Array.prototype.slice.call(document.querySelectorAll('.case-card'));
+  caseCards.forEach(function (card) {
+    var head = card.querySelector('.case-head');
+    var body = card.querySelector('.case-body');
+    if (!head || !body) return;
+    var closedMax = getComputedStyle(body).maxHeight;
+    head.addEventListener('click', function () {
+      var opening = !card.classList.contains('is-open');
+      if (opening) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        card.classList.add('is-open');
+        if (!prefersReduced) {
+          body.addEventListener('transitionend', function done(e) {
+            if (e.propertyName !== 'max-height') return;
+            body.style.maxHeight = 'none';
+            body.removeEventListener('transitionend', done);
+          });
+        } else {
+          body.style.maxHeight = 'none';
+        }
+      } else {
+        /* Pin the current height first, otherwise 'none' has nothing to animate from. */
+        body.style.maxHeight = body.scrollHeight + 'px';
+        void body.offsetHeight;
+        body.style.maxHeight = closedMax;
+        card.classList.remove('is-open');
       }
+      head.setAttribute('aria-expanded', String(opening));
     });
-  }
+  });
 
   /* ---------- Footer year ---------- */
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
