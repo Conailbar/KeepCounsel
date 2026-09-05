@@ -274,9 +274,9 @@ section { position: relative; }
 .mobile-nav {
   position: fixed; inset: 0; z-index: 99;
   background: var(--paper);
-  display: flex; flex-direction: column;
+  display: flex; flex-direction: column; justify-content: center;
   overflow-y: auto;
-  padding: 10rem var(--gutter) 3rem;
+  padding: 6rem var(--gutter) 2.4rem;
   transform: translateY(-100%);
   opacity: 0;
   visibility: hidden;
@@ -284,7 +284,10 @@ section { position: relative; }
 }
 .mobile-nav.is-open { transform: translateY(0); opacity: 1; visibility: visible; transition: transform var(--dur-med) var(--ease-in-out), opacity var(--dur-med) var(--ease-in-out); }
 .mobile-nav a { display: block; font-family: var(--font-display); font-size: 2rem; padding-block: 0.6rem; border-bottom: 1px solid var(--border); }
-.mobile-nav .btn { margin-top: 2rem; }
+.mobile-nav .btn { margin-top: 1.8rem; }
+.mobile-nav-foot { margin-top: auto; padding-top: 2.6rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.mobile-nav-foot a { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: var(--gold); border-bottom: 0; padding-block: 0.3rem; }
+.mobile-nav-foot span { font-size: 0.8rem; color: var(--fg-faint); }
 
 /* ---- Hero ---------------------------------------------------------------*/
 .hero {
